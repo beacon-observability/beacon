@@ -22,7 +22,7 @@
 
 ## Go
 
-计划在 `GuanceCloud/beacon-go` 维护。工程尚待建立，先盘点现有实现并确定维护方式；暂不提供仓库或安装链接。
+计划在 `beacon-observability/beacon-go` 维护。工程尚待建立，先盘点现有实现并确定维护方式；暂不提供仓库或安装链接。
 
 ## Python
 
