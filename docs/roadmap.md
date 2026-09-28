@@ -28,7 +28,7 @@ Java 的完整源码下游方式已用于 Python 和 PHP Contrib，但不要求 
 
 ## 后续：完成 PHP 验证与发行闭环
 
-- 已建立完整 OpenTelemetry PHP Contrib 源码下游工程，并将原生 `ext-opentelemetry` 作为独立的固定基线依赖；开发状态见 [PHP 项目入口](languages.md#php)。
+- 已分别建立 OpenTelemetry PHP Contrib 与原生扩展的完整源码下游工程，组件包通过固定提交依赖 Beacon 扩展；开发状态见 [PHP 项目入口](languages.md#php)。
 - 验证目标 PHP 版本、扩展版本和首批组件插桩，完成实际接收端数据链路测试。
 - 确定 Composer 包的正式版本策略、发布权限、升级与回退流程；首次正式发行后补充固定版本的用户文档。
 
