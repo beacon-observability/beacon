@@ -35,7 +35,7 @@ The complete-source downstream approach used by Java has also been adopted for P
 
 ## Later: Complete PHP Validation and Release
 
-- Complete-source downstream projects have been established separately for OpenTelemetry PHP Contrib and the native extension. Component packages are tested against a pinned Beacon extension commit. See the [PHP project entry](languages.md#php) for current development status.
+- Complete-source downstream projects have been established separately for OpenTelemetry PHP Contrib and the native extension. Beacon PHP Instrumentation `0.1.0` is published, and component packages are tested against its fixed release commit. See the [PHP project entry](languages.md#php) for current development status.
 - Validate the target PHP versions, extension versions, and initial component instrumentations, including an actual ingestion path.
 - Finalize the Composer packages' official versioning, publishing permissions, and upgrade and rollback procedures. Add version-specific user documentation after the initial official release.
 
