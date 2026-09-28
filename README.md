@@ -4,7 +4,7 @@ Beacon is a multi-language application instrumentation agent based on OpenTeleme
 
 This repository is the product and documentation entry point. It does not contain agent implementations.
 
-Each language evolves independently: .NET has an official release; Java, Python, and PHP remain under development and validation; Go and Node.js projects have not yet been established. Project entry points and current status are maintained in [Language Projects](docs/languages.md).
+Each language evolves independently: .NET has an official release; Java, Node.js, Python, and PHP remain under development and validation; the Go project has not yet been established. Project entry points and current status are maintained in [Language Projects](docs/languages.md).
 
 ## Documentation
 

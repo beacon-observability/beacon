@@ -15,6 +15,7 @@ Each fact has one authoritative source. The product repository links to language
 
 - Select a maintenance model that fits each language. Languages are not required to copy the Java project structure.
 - Java uses a complete-source downstream model, preserving the upstream layout and history while allowing native instrumentation enhancements. See the [Java project entry](languages.md#java) for synchronization, baseline, and release documentation.
+- Node.js uses a standalone downstream copy of the complete OpenTelemetry JavaScript Contrib source and history, with Beacon-specific additions kept isolated. See the [Node.js project entry](languages.md#nodejs) for its baseline, synchronization, and release-preparation documentation.
 - Python uses a standalone downstream copy of the complete OpenTelemetry Python Contrib source, preserving existing Beacon-specific commits and upstream history. See the [Python project entry](languages.md#python) for synchronization, baseline, and release-preparation documentation.
 - Pin upstream versions and commits, keep Beacon-specific differences controlled, and maintain corresponding regression tests.
 - Track official upstream updates. Evaluate changes, resolve conflicts, and validate before adoption; "always current" never means releasing an untested upstream update directly.

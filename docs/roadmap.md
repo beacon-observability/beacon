@@ -26,12 +26,12 @@ Java follows a migration path that preserves the former repository while importi
 
 The complete-source downstream approach used by Java has also been adopted for Python and PHP Contrib, but Go does not need to reuse the same branch layout, packaging, or feature list. Languages may progress independently according to available resources and maturity, and each completes its own validation and release.
 
-## Later: Develop Node.js
+## Later: Complete Node.js Validation and Release
 
-- Base the project on the official [OpenTelemetry JavaScript Contrib](https://github.com/open-telemetry/opentelemetry-js-contrib) repository and merge the latest official upstream changes available when development begins.
-- Validate the merged source, record the exact adopted commit or version, and identify its license, accompanying core dependencies, and any Beacon-specific differences to maintain.
-- Decide the Beacon Node.js project location, integration model, and Beacon-specific enhancement scope.
-- Establish build, test, upstream-tracking, and independent release processes. Validate target Node.js environments and an actual ingestion path before claiming support.
+- A complete-source downstream project has been established from the latest official OpenTelemetry JavaScript Contrib `main` commit available at project creation, with the adopted commit pinned in the [Node.js project entry](languages.md#nodejs).
+- An experimental private profiling workspace has passed local compilation and six unit tests. Validate the complete upstream matrix, target Node.js runtime matrix, and actual ingestion path before claiming support.
+- Review inherited workflows before enabling only the automation needed for Beacon synchronization and validation; upstream publication behavior must remain disabled.
+- Finalize package identity, artifacts, publishing permissions, and upgrade and rollback procedures before the initial official release.
 
 ## Later: Complete PHP Validation and Release
 

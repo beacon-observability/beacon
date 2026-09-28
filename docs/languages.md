@@ -38,9 +38,19 @@ Beacon Go is planned for `beacon-observability/beacon-go`. The project has not y
 
 ## Node.js
 
-Beacon Node.js will be based on the official [OpenTelemetry JavaScript Contrib](https://github.com/open-telemetry/opentelemetry-js-contrib) project, which includes community-maintained instrumentations, auto-instrumentation metapackages, context propagators, resource detectors, and other components.
+Beacon Node.js maintains a standalone downstream copy of the complete official OpenTelemetry JavaScript Contrib source and history. The project was established from the latest official `main` commit available at that time, `31b2af9dd5fcc5f96949e5666f8f45b30b997722`, and adds an experimental private profiling workspace without renaming inherited upstream packages.
 
-Before a Beacon baseline is fixed, the project must merge and validate the latest official OpenTelemetry JavaScript Contrib changes available at the start of development, then record the exact adopted commit or version. The Beacon Node.js repository, integration model, Beacon-specific enhancement scope, and release approach remain undecided. Builds, target runtime environments, and ingestion paths have not been validated. No Beacon Node.js repository or installation entry is provided yet.
+The profiling workspace compiles and its six unit tests pass locally on Node.js 24. The complete upstream matrix, declared runtime matrix, DataKit ingestion, and release-candidate artifacts have not been validated. Inherited GitHub Actions remain disabled pending review, and there is no official Beacon Node.js release or installation entry.
+
+The following development entry points track the `main` development branch. Their contents may change with the branch and do not constitute installation instructions or support commitments for an official release.
+
+| Entry | Development URL |
+| --- | --- |
+| Source repository | [beacon-observability/beacon-nodejs](https://github.com/beacon-observability/beacon-nodejs) |
+| Development guide | [Beacon Node.js development entry](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/README.md) |
+| Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/upstream.lock.json) |
+| Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/UPSTREAM.md) |
+| Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/RELEASING.md) |
 
 ## Python
 
