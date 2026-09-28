@@ -1,10 +1,10 @@
 # Beacon
 
-Beacon 是 GuanceCloud 基于 OpenTelemetry 维护的多语言应用探针。各语言独立开发和发行，具体能力与支持范围以对应语言文档为准。
+Beacon 是基于 OpenTelemetry 维护的多语言应用探针。各语言独立开发和发行，具体能力与支持范围以对应语言文档为准。
 
 本仓库是产品与文档入口，不承载探针实现。
 
-目前处于开发阶段，尚无正式发行。Java、Go、Python、PHP 的项目入口和建设状态统一维护在[语言项目](docs/languages.md)中。
+各语言独立演进：.NET 已提供正式发行，Java、Python 和 PHP 仍在开发验证阶段，Go 尚待建立工程。项目入口和最新状态统一维护在[语言项目](docs/languages.md)中。
 
 ## 文档入口
 

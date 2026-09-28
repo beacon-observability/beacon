@@ -20,6 +20,18 @@
 
 上述链接指向开发文档，会随开发分支变化，不代表某个正式版本的安装指南或支持承诺。首次发行后，本页再补充实际发布标签对应的使用文档与 Release 链接。
 
+## .NET
+
+采用完整 OpenTelemetry .NET Automatic Instrumentation 源码的独立下游维护方式，不使用 GitHub Fork。当前正式版本为 `0.1.4`，提供 Linux glibc/musl、Windows、macOS 和 NuGet 归档，并附带安装脚本、校验和、SPDX SBOM 与构建证明。DataKit 接收链路尚未纳入已验证支持范围，具体能力和限制以版本说明为准。
+
+| 入口 | 地址 |
+| --- | --- |
+| 源码仓库 | [beacon-observability/beacon-dotnet](https://github.com/beacon-observability/beacon-dotnet) |
+| 开发说明 | [Beacon .NET 开发入口](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/README.md) |
+| 源码来源 | [上游基线记录](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/upstream.lock.json) |
+| 上游维护 | [同步流程](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/UPSTREAM.md) |
+| 当前发行 | [Beacon .NET 0.1.4](https://github.com/beacon-observability/beacon-dotnet/releases/tag/beacon-v0.1.4) |
+
 ## Go
 
 计划在 `beacon-observability/beacon-go` 维护。工程尚待建立，先盘点现有实现并确定维护方式；暂不提供仓库或安装链接。
@@ -38,11 +50,11 @@
 | 上游维护 | [OTel 同步流程](https://github.com/beacon-observability/beacon-python/blob/main/beacon/UPSTREAM.md) |
 | 发行准备 | [发行准备项](https://github.com/beacon-observability/beacon-python/blob/main/beacon/RELEASING.md) |
 
-现有自有实现的历史来源可在[旧 `gtrace` 分支](https://github.com/GuanceCloud/opentelemetry-python-contrib/tree/gtrace)追溯；已有的 Guance PyPI 包不等于 Beacon Python 发行。首次发行后，本页再补充固定版本的安装与 Release 链接。
+现有自有实现的来源已保留在 `beacon-python` 的 Git 历史中；已有旧版 PyPI 包不等于 Beacon Python 发行。首次发行后，本页再补充固定版本的安装与 Release 链接。
 
 ## PHP
 
-PHP 分为两个非 Fork 下游仓库：`beacon-php` 保留 OpenTelemetry PHP Contrib 完整历史，维护组件插桩和 Composer 聚合包；`beacon-php-instrumentation` 保留官方原生扩展完整历史，并合入 GuanceCloud 旧 `gtrace` 分支用于追溯跨平台构建与制品经验。两者通过固定提交联调，手动插桩不强制加载扩展。当前已完成 PHP 8.4 原生扩展编译和 PHPT、本地 Composer 安装及诊断联调；完整组件矩阵、其他平台 CI、实际接收端链路及正式制品发布尚未完成，因此仍无 Beacon PHP 正式发行或安装入口。
+PHP 分为两个非 Fork 下游仓库：`beacon-php` 保留 OpenTelemetry PHP Contrib 完整历史，维护组件插桩和 Composer 聚合包；`beacon-php-instrumentation` 保留官方原生扩展完整历史，并合入 GuanceCloud 旧 `gtrace` 分支用于追溯跨平台构建与制品经验。两者通过固定提交联调，手动插桩不强制加载扩展。当前原生扩展已通过 Linux、macOS、Windows 代表性矩阵、PHPT 和源码包构建，Composer 包已在 PHP 8.2/8.4 从固定扩展提交安装及诊断联调；完整组件矩阵、实际接收端链路及正式制品发布尚未完成，因此仍无 Beacon PHP 正式发行或安装入口。
 
 以下开发入口已推送到 GitHub `main` 分支。文档会随开发进展更新，不作为正式版本的安装或支持承诺。
 
