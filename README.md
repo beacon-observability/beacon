@@ -4,13 +4,13 @@ Beacon 是基于 OpenTelemetry 维护的多语言应用探针。各语言独立�
 
 本仓库是产品与文档入口，不承载探针实现。
 
-各语言独立演进：.NET 已提供正式发行，Java 和 Python 仍在开发验证阶段，Go 尚待建立工程。项目入口和最新状态统一维护在[语言项目](docs/languages.md)中。
+各语言独立演进：.NET 已提供正式发行，Java、Python 和 PHP 仍在开发验证阶段，Go 尚待建立工程。项目入口和最新状态统一维护在[语言项目](docs/languages.md)中。
 
 ## 文档入口
 
 - [语言项目](docs/languages.md)：各语言仓库、开发文档和发行状态。
 - [维护原则](docs/maintenance.md)：仓库分工、上游同步和发布要求。
-- [新语言接入与首次发行经验](docs/language-onboarding.md)：供 PHP 等后续语言复用的判断顺序与验收边界。
+- [新语言接入与首次发行经验](docs/language-onboarding.md)：供后续语言复用的判断顺序与验收边界。
 - [路线图](docs/roadmap.md)：后续建设方向，不作为已支持能力或交付期限承诺。
 
 ## 如何使用本仓库

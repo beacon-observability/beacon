@@ -2,7 +2,7 @@
 
 本页统一维护语言项目入口。各语言的实现方式、功能范围和发行节奏可以不同，不能从其他语言或上游项目推断某个 Beacon 版本的支持能力。
 
-未来接入 PHP 等新语言时，先参考[新语言接入与首次发行经验](language-onboarding.md)确定维护方式和验证边界；未建立的工程不在此页提供占位仓库或安装入口。
+未来接入新语言时，先参考[新语言接入与首次发行经验](language-onboarding.md)确定维护方式和验证边界；未建立的工程不在此页提供占位仓库或安装入口。
 
 ## Java
 
@@ -51,6 +51,25 @@
 | 发行准备 | [发行准备项](https://github.com/beacon-observability/beacon-python/blob/main/beacon/RELEASING.md) |
 
 现有自有实现的来源已保留在 `beacon-python` 的 Git 历史中；已有旧版 PyPI 包不等于 Beacon Python 发行。首次发行后，本页再补充固定版本的安装与 Release 链接。
+
+## PHP
+
+PHP 分为两个非 Fork 下游仓库：`beacon-php` 保留 OpenTelemetry PHP Contrib 完整历史，维护组件插桩和 Composer 聚合包；`beacon-php-instrumentation` 保留官方原生扩展完整历史，并合入 GuanceCloud 旧 `gtrace` 分支用于追溯跨平台构建与制品经验。两者通过固定提交联调，手动插桩不强制加载扩展。当前原生扩展已通过 Linux、macOS、Windows 代表性矩阵、PHPT 和源码包构建，Composer 包已在 PHP 8.2/8.4 从固定扩展提交安装及诊断联调；完整组件矩阵、实际接收端链路及正式制品发布尚未完成，因此仍无 Beacon PHP 正式发行或安装入口。
+
+以下开发入口已推送到 GitHub `main` 分支。文档会随开发进展更新，不作为正式版本的安装或支持承诺。
+
+| 入口 | 开发地址 |
+| --- | --- |
+| 源码仓库 | [beacon-observability/beacon-php](https://github.com/beacon-observability/beacon-php) |
+| 原生扩展仓库 | [beacon-observability/beacon-php-instrumentation](https://github.com/beacon-observability/beacon-php-instrumentation) |
+| 开发说明 | [Beacon PHP 开发入口](https://github.com/beacon-observability/beacon-php/blob/main/beacon/README.md) |
+| 源码来源 | [上游基线记录](https://github.com/beacon-observability/beacon-php/blob/main/beacon/upstream.lock.json) |
+| 上游维护 | [OTel 同步流程](https://github.com/beacon-observability/beacon-php/blob/main/beacon/UPSTREAM.md) |
+| 发行准备 | [发行准备项](https://github.com/beacon-observability/beacon-php/blob/main/beacon/RELEASING.md) |
+| 扩展工程说明 | [Beacon PHP Instrumentation 开发入口](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/README.md) |
+| 扩展来源 | [扩展双来源基线](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/upstream.lock.json) |
+
+首次发行后，本页再补充固定版本的安装与 Release 链接。
 
 ## 支持范围的维护方式
 
