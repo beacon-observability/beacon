@@ -40,7 +40,7 @@ Beacon Go is planned for `beacon-observability/beacon-go`. The project has not y
 
 Beacon Node.js maintains a standalone downstream copy of the complete official OpenTelemetry JavaScript Contrib source and history. The project was established from the latest official `main` commit available at that time, `31b2af9dd5fcc5f96949e5666f8f45b30b997722`, and adds an experimental private profiling workspace without renaming inherited upstream packages.
 
-The profiling workspace compiles and its six unit tests pass locally on Node.js 24. The complete upstream matrix, declared runtime matrix, DataKit ingestion, and release-candidate artifacts have not been validated. Inherited GitHub Actions remain disabled pending review, and there is no official Beacon Node.js release or installation entry.
+The dedicated Beacon CI compiles the profiling workspace and runs its six unit tests on Node.js 18.19, 20, 22, and 24. The Node.js 24 job also validates formatting, Markdown, package metadata, and example lockfiles. The complete upstream matrix, DataKit ingestion, and release-candidate artifacts have not been validated. All inherited GitHub Actions remain disabled and only the Beacon workflow is enabled, so there is still no official Beacon Node.js release or installation entry.
 
 The following development entry points track the `main` development branch. Their contents may change with the branch and do not constitute installation instructions or support commitments for an official release.
 
@@ -51,6 +51,7 @@ The following development entry points track the `main` development branch. Thei
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/UPSTREAM.md) |
 | Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/RELEASING.md) |
+| Initial CI validation | [Beacon Node.js CI run 36390660551](https://github.com/beacon-observability/beacon-nodejs/actions/runs/36390660551) |
 
 ## Python
 

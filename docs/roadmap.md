@@ -29,8 +29,8 @@ The complete-source downstream approach used by Java has also been adopted for P
 ## Later: Complete Node.js Validation and Release
 
 - A complete-source downstream project has been established from the latest official OpenTelemetry JavaScript Contrib `main` commit available at project creation, with the adopted commit pinned in the [Node.js project entry](languages.md#nodejs).
-- An experimental private profiling workspace has passed local compilation and six unit tests. Validate the complete upstream matrix, target Node.js runtime matrix, and actual ingestion path before claiming support.
-- Review inherited workflows before enabling only the automation needed for Beacon synchronization and validation; upstream publication behavior must remain disabled.
+- An experimental private profiling workspace has passed compilation and six unit tests in dedicated Beacon CI on Node.js 18.19, 20, 22, and 24. Validate the complete upstream matrix and actual ingestion path before claiming support.
+- Only the dedicated Beacon workflow is enabled; all inherited workflows remain disabled. Review every newly inherited workflow during upstream synchronization, and keep upstream publication behavior disabled.
 - Finalize package identity, artifacts, publishing permissions, and upgrade and rollback procedures before the initial official release.
 
 ## Later: Complete PHP Validation and Release
