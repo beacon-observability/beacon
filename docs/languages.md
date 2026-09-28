@@ -44,20 +44,20 @@
 
 PHP 分为两个非 Fork 下游仓库：`beacon-php` 保留 OpenTelemetry PHP Contrib 完整历史，维护组件插桩和 Composer 聚合包；`beacon-php-instrumentation` 保留官方原生扩展完整历史，并合入 GuanceCloud 旧 `gtrace` 分支用于追溯跨平台构建与制品经验。两者通过固定提交联调，手动插桩不强制加载扩展。当前已完成 PHP 8.4 原生扩展编译和 PHPT、本地 Composer 安装及诊断联调；完整组件矩阵、其他平台 CI、实际接收端链路及正式制品发布尚未完成，因此仍无 Beacon PHP 正式发行或安装入口。
 
-以下开发入口已推送到 GitHub。初始化改动当前通过开发 PR 评审，文档会随开发进展更新，不作为正式版本的安装或支持承诺。
+以下开发入口已推送到 GitHub `main` 分支。文档会随开发进展更新，不作为正式版本的安装或支持承诺。
 
 | 入口 | 开发地址 |
 | --- | --- |
 | 源码仓库 | [beacon-observability/beacon-php](https://github.com/beacon-observability/beacon-php) |
 | 原生扩展仓库 | [beacon-observability/beacon-php-instrumentation](https://github.com/beacon-observability/beacon-php-instrumentation) |
-| 开发说明 | [Beacon PHP 开发入口](https://github.com/beacon-observability/beacon-php/blob/codex/bootstrap-beacon-php/beacon/README.md) |
-| 源码来源 | [上游基线记录](https://github.com/beacon-observability/beacon-php/blob/codex/bootstrap-beacon-php/beacon/upstream.lock.json) |
-| 上游维护 | [OTel 同步流程](https://github.com/beacon-observability/beacon-php/blob/codex/bootstrap-beacon-php/beacon/UPSTREAM.md) |
-| 发行准备 | [发行准备项](https://github.com/beacon-observability/beacon-php/blob/codex/bootstrap-beacon-php/beacon/RELEASING.md) |
-| 扩展工程说明 | [Beacon PHP Instrumentation 开发入口](https://github.com/beacon-observability/beacon-php-instrumentation/blob/codex/bootstrap-beacon-php-instrumentation/beacon/README.md) |
-| 扩展来源 | [扩展双来源基线](https://github.com/beacon-observability/beacon-php-instrumentation/blob/codex/bootstrap-beacon-php-instrumentation/beacon/upstream.lock.json) |
+| 开发说明 | [Beacon PHP 开发入口](https://github.com/beacon-observability/beacon-php/blob/main/beacon/README.md) |
+| 源码来源 | [上游基线记录](https://github.com/beacon-observability/beacon-php/blob/main/beacon/upstream.lock.json) |
+| 上游维护 | [OTel 同步流程](https://github.com/beacon-observability/beacon-php/blob/main/beacon/UPSTREAM.md) |
+| 发行准备 | [发行准备项](https://github.com/beacon-observability/beacon-php/blob/main/beacon/RELEASING.md) |
+| 扩展工程说明 | [Beacon PHP Instrumentation 开发入口](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/README.md) |
+| 扩展来源 | [扩展双来源基线](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/upstream.lock.json) |
 
-两个初始化 PR 合并后，上述开发文档链接将切换到 `main`。首次发行后，本页再补充固定版本的安装与 Release 链接。
+首次发行后，本页再补充固定版本的安装与 Release 链接。
 
 ## 支持范围的维护方式
 
