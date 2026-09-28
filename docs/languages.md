@@ -54,7 +54,7 @@
 
 ## PHP
 
-PHP 分为两个非 Fork 下游仓库：`beacon-php` 保留 OpenTelemetry PHP Contrib 完整历史，维护组件插桩和 Composer 聚合包；`beacon-php-instrumentation` 保留官方原生扩展完整历史，并合入 GuanceCloud 旧 `gtrace` 分支用于追溯跨平台构建与制品经验。两者通过固定提交联调，手动插桩不强制加载扩展。当前原生扩展已通过 Linux、macOS、Windows 代表性矩阵、PHPT 和源码包构建，Composer 包已在 PHP 8.2/8.4 从固定扩展提交安装及诊断联调；完整组件矩阵、实际接收端链路及正式制品发布尚未完成，因此仍无 Beacon PHP 正式发行或安装入口。
+PHP 分为两个非 Fork 下游仓库：`beacon-php` 保留 OpenTelemetry PHP Contrib 完整历史，维护组件插桩和 Composer 聚合包；`beacon-php-instrumentation` 保留官方原生扩展完整历史，并吸收既有的跨平台构建与制品经验。两者通过固定提交联调，手动插桩不强制加载扩展。当前原生扩展已通过 Linux、macOS、Windows 代表性矩阵、PHPT 和源码包构建，Composer 包已在 PHP 8.2/8.4 从固定扩展提交安装及诊断联调；完整组件矩阵、实际接收端链路及正式制品发布尚未完成，因此仍无 Beacon PHP 正式发行或安装入口。
 
 以下开发入口已推送到 GitHub `main` 分支。文档会随开发进展更新，不作为正式版本的安装或支持承诺。
 
