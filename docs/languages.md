@@ -60,7 +60,7 @@ The Git history of `beacon-python` preserves the provenance of existing Beacon-s
 
 ## PHP
 
-Beacon PHP uses two standalone downstream repositories rather than GitHub forks. `beacon-php` preserves the complete OpenTelemetry PHP Contrib history and maintains component instrumentation and the Composer metapackage. `beacon-php-instrumentation` preserves the complete history of the official native extension and incorporates existing cross-platform build and artifact experience. The repositories are integration-tested against pinned commits, and manual instrumentation does not require the extension. The native extension has passed representative Linux, macOS, and Windows matrices, PHPT tests, and source-package builds. Composer packages have passed installation and diagnostic integration on PHP 8.2 and 8.4 against a pinned extension commit. The complete component matrix, real ingestion path, and official artifact publication have not yet been completed, so there is no official Beacon PHP release or installation entry.
+Beacon PHP uses two standalone downstream repositories rather than GitHub forks. `beacon-php` preserves the complete OpenTelemetry PHP Contrib history and maintains component instrumentation and the Composer metapackage. `beacon-php-instrumentation` preserves the complete history of the official native extension and incorporates existing cross-platform build and artifact experience. The repositories are integration-tested against pinned releases, and manual instrumentation does not require the extension. Beacon PHP Instrumentation `0.1.0` is published with Linux and Windows binaries, a PECL-compatible source package, and SHA-256 checksums after passing representative Linux, macOS, and Windows matrices and PHPT tests. Composer packages have passed installation and diagnostic integration on PHP 8.2 and 8.4 against the released extension commit. The complete component matrix, real ingestion path, and Composer package publication have not yet been completed, so the full Beacon PHP distribution still has no official release or installation entry.
 
 The following development entry points are available on the GitHub `main` branch. Their contents may change as development progresses and do not constitute installation instructions or support commitments for an official release.
 
@@ -68,12 +68,13 @@ The following development entry points are available on the GitHub `main` branch
 | --- | --- |
 | Source repository | [beacon-observability/beacon-php](https://github.com/beacon-observability/beacon-php) |
 | Native extension repository | [beacon-observability/beacon-php-instrumentation](https://github.com/beacon-observability/beacon-php-instrumentation) |
+| Native extension release | [Beacon PHP Instrumentation 0.1.0](https://github.com/beacon-observability/beacon-php-instrumentation/releases/tag/v0.1.0) |
 | Development guide | [Beacon PHP development entry](https://github.com/beacon-observability/beacon-php/blob/main/beacon/README.md) |
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-php/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-php/blob/main/beacon/UPSTREAM.md) |
 | Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-php/blob/main/beacon/RELEASING.md) |
 | Extension development guide | [Beacon PHP Instrumentation development entry](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/README.md) |
-| Extension provenance | [Dual-source extension baseline](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/upstream.lock.json) |
+| Extension provenance | [Extension upstream baseline](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/upstream.lock.json) |
 
 After the initial release, this page will link to version-specific installation instructions and the corresponding GitHub Release.
 
