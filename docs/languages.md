@@ -1,78 +1,84 @@
-# 语言项目
+# Language Projects
 
-本页统一维护语言项目入口。各语言的实现方式、功能范围和发行节奏可以不同，不能从其他语言或上游项目推断某个 Beacon 版本的支持能力。
+This page is the authoritative index of language projects. Implementation approaches, feature scopes, and release schedules may differ by language. Support for one Beacon language or its upstream project must not be inferred for another.
 
-未来接入新语言时，先参考[新语言接入与首次发行经验](language-onboarding.md)确定维护方式和验证边界；未建立的工程不在此页提供占位仓库或安装入口。
+Before onboarding a new language, use the [New Language Onboarding and Initial Release Guide](language-onboarding.md) to determine its maintenance model and validation boundaries. Projects that have not been established do not receive placeholder repository or installation links here.
 
 ## Java
 
-采用完整 OpenTelemetry Java Instrumentation 源码的下游维护方式，保留上游历史，并在对应模块开发自有增强。当前处于工程准备阶段，尚无 Beacon Java 正式发行。
+Beacon Java uses a downstream copy of the complete OpenTelemetry Java Instrumentation source, preserves upstream history, and adds Beacon-specific enhancements in the corresponding modules. The project is currently being prepared and has no official Beacon Java release.
 
-以下开发入口已推送到 GitHub，使用 `main` 开发分支。开发文档会随分支更新，不作为正式版本的安装或支持承诺。
+The following development entry points are available on GitHub and track the `main` development branch. Their contents may change with the branch and do not constitute installation instructions or support commitments for an official release.
 
-| 入口 | 开发地址 |
+| Entry | Development URL |
 | --- | --- |
-| 源码仓库 | [beacon-observability/beacon-java](https://github.com/beacon-observability/beacon-java) |
-| 开发说明 | [Beacon Java 开发入口](https://github.com/beacon-observability/beacon-java/blob/main/beacon/README.md) |
-| 源码来源 | [上游基线记录](https://github.com/beacon-observability/beacon-java/blob/main/beacon/upstream.lock.json) |
-| 上游维护 | [OTel 同步流程](https://github.com/beacon-observability/beacon-java/blob/main/beacon/UPSTREAM.md) |
-| 发行开发 | [发行流程与准备项](https://github.com/beacon-observability/beacon-java/blob/main/beacon/RELEASING.md) |
+| Source repository | [beacon-observability/beacon-java](https://github.com/beacon-observability/beacon-java) |
+| Development guide | [Beacon Java development entry](https://github.com/beacon-observability/beacon-java/blob/main/beacon/README.md) |
+| Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-java/blob/main/beacon/upstream.lock.json) |
+| Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-java/blob/main/beacon/UPSTREAM.md) |
+| Release development | [Release process and prerequisites](https://github.com/beacon-observability/beacon-java/blob/main/beacon/RELEASING.md) |
 
-上述链接指向开发文档，会随开发分支变化，不代表某个正式版本的安装指南或支持承诺。首次发行后，本页再补充实际发布标签对应的使用文档与 Release 链接。
+These links point to development documentation that changes with the development branch. They do not represent installation instructions or support commitments for a particular official release. After the initial release, this page will link to version-specific user documentation and the corresponding GitHub Release.
 
 ## .NET
 
-采用完整 OpenTelemetry .NET Automatic Instrumentation 源码的独立下游维护方式，不使用 GitHub Fork。当前正式版本为 `0.1.4`，提供 Linux glibc/musl、Windows、macOS 和 NuGet 归档，并附带安装脚本、校验和、SPDX SBOM 与构建证明。DataKit 接收链路尚未纳入已验证支持范围，具体能力和限制以版本说明为准。
+Beacon .NET maintains a standalone downstream copy of the complete OpenTelemetry .NET Automatic Instrumentation source and is not a GitHub fork. The current official version is `0.1.4`, with Linux glibc/musl, Windows, macOS, and NuGet archives, as well as installation scripts, checksums, an SPDX SBOM, and build provenance. The DataKit ingestion path is not yet within the validated support scope. Refer to the release notes for exact capabilities and limitations.
 
-| 入口 | 地址 |
+| Entry | URL |
 | --- | --- |
-| 源码仓库 | [beacon-observability/beacon-dotnet](https://github.com/beacon-observability/beacon-dotnet) |
-| 开发说明 | [Beacon .NET 开发入口](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/README.md) |
-| 源码来源 | [上游基线记录](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/upstream.lock.json) |
-| 上游维护 | [同步流程](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/UPSTREAM.md) |
-| 当前发行 | [Beacon .NET 0.1.4](https://github.com/beacon-observability/beacon-dotnet/releases/tag/beacon-v0.1.4) |
+| Source repository | [beacon-observability/beacon-dotnet](https://github.com/beacon-observability/beacon-dotnet) |
+| Development guide | [Beacon .NET development entry](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/README.md) |
+| Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/upstream.lock.json) |
+| Upstream maintenance | [Synchronization process](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/UPSTREAM.md) |
+| Current release | [Beacon .NET 0.1.4](https://github.com/beacon-observability/beacon-dotnet/releases/tag/beacon-v0.1.4) |
 
 ## Go
 
-计划在 `beacon-observability/beacon-go` 维护。工程尚待建立，先盘点现有实现并确定维护方式；暂不提供仓库或安装链接。
+Beacon Go is planned for `beacon-observability/beacon-go`. The project has not yet been established. Existing implementations must first be inventoried and a maintenance model selected, so no repository or installation link is provided.
+
+## Node.js
+
+Beacon Node.js will be based on the official [OpenTelemetry JavaScript Contrib](https://github.com/open-telemetry/opentelemetry-js-contrib) project, which includes community-maintained instrumentations, auto-instrumentation metapackages, context propagators, resource detectors, and other components.
+
+Before a Beacon baseline is fixed, the project must merge and validate the latest official OpenTelemetry JavaScript Contrib changes available at the start of development, then record the exact adopted commit or version. The Beacon Node.js repository, integration model, Beacon-specific enhancement scope, and release approach remain undecided. Builds, target runtime environments, and ingestion paths have not been validated. No Beacon Node.js repository or installation entry is provided yet.
 
 ## Python
 
-采用完整 OpenTelemetry Python Contrib 源码的独立下游维护方式，不使用 GitHub Fork。开发工程已从旧 `gtrace` 分支保留自有增强与提交历史，并合入官方 `v0.65b0` 发布基线；配套 Python Core 开发依赖固定到 `v1.44.0`。旧 `gtrace` 发行包已移除，`beacon-otel` 主包与可选的 `beacon-profiling` 开发包已实现；本地单元测试和 Python 3.10–3.14 独立环境安装及启动冒烟测试已完成，完整上游矩阵、DataKit 后端入库确认和正式候选制品验收尚未完成，因此仍无 Beacon Python 正式发行或安装入口。
+Beacon Python maintains a standalone downstream copy of the complete OpenTelemetry Python Contrib source and is not a GitHub fork. The development project preserves Beacon-specific enhancements and their history from the former `gtrace` branch and incorporates the official `v0.65b0` release baseline; its Python Core development dependency is pinned to `v1.44.0`. The former `gtrace` distribution has been removed. The `beacon-otel` main package and optional `beacon-profiling` development package have been implemented. Local unit tests and clean-environment installation and startup smoke tests on Python 3.10–3.14 have passed. The complete upstream matrix, DataKit ingestion, and release-candidate artifacts have not yet been validated, so there is no official Beacon Python release or installation entry.
 
-以下开发入口已推送到 GitHub，使用 `main` 开发分支。开发文档会随分支更新，不作为正式版本的安装或支持承诺。
+The following development entry points are available on GitHub and track the `main` development branch. Their contents may change with the branch and do not constitute installation instructions or support commitments for an official release.
 
-| 入口 | 开发地址 |
+| Entry | Development URL |
 | --- | --- |
-| 源码仓库 | [beacon-observability/beacon-python](https://github.com/beacon-observability/beacon-python) |
-| 开发说明 | [Beacon Python 开发入口](https://github.com/beacon-observability/beacon-python/blob/main/beacon/README.md) |
-| 源码来源 | [上游基线记录](https://github.com/beacon-observability/beacon-python/blob/main/beacon/upstream.lock.json) |
-| 上游维护 | [OTel 同步流程](https://github.com/beacon-observability/beacon-python/blob/main/beacon/UPSTREAM.md) |
-| 发行准备 | [发行准备项](https://github.com/beacon-observability/beacon-python/blob/main/beacon/RELEASING.md) |
+| Source repository | [beacon-observability/beacon-python](https://github.com/beacon-observability/beacon-python) |
+| Development guide | [Beacon Python development entry](https://github.com/beacon-observability/beacon-python/blob/main/beacon/README.md) |
+| Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-python/blob/main/beacon/upstream.lock.json) |
+| Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-python/blob/main/beacon/UPSTREAM.md) |
+| Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-python/blob/main/beacon/RELEASING.md) |
 
-现有自有实现的来源已保留在 `beacon-python` 的 Git 历史中；已有旧版 PyPI 包不等于 Beacon Python 发行。首次发行后，本页再补充固定版本的安装与 Release 链接。
+The Git history of `beacon-python` preserves the provenance of existing Beacon-specific implementations. Former PyPI packages do not constitute a Beacon Python release. After the initial release, this page will link to version-specific installation instructions and the corresponding GitHub Release.
 
 ## PHP
 
-PHP 分为两个非 Fork 下游仓库：`beacon-php` 保留 OpenTelemetry PHP Contrib 完整历史，维护组件插桩和 Composer 聚合包；`beacon-php-instrumentation` 保留官方原生扩展完整历史，并吸收既有的跨平台构建与制品经验。两者通过固定提交联调，手动插桩不强制加载扩展。当前原生扩展已通过 Linux、macOS、Windows 代表性矩阵、PHPT 和源码包构建，Composer 包已在 PHP 8.2/8.4 从固定扩展提交安装及诊断联调；完整组件矩阵、实际接收端链路及正式制品发布尚未完成，因此仍无 Beacon PHP 正式发行或安装入口。
+Beacon PHP uses two standalone downstream repositories rather than GitHub forks. `beacon-php` preserves the complete OpenTelemetry PHP Contrib history and maintains component instrumentation and the Composer metapackage. `beacon-php-instrumentation` preserves the complete history of the official native extension and incorporates existing cross-platform build and artifact experience. The repositories are integration-tested against pinned commits, and manual instrumentation does not require the extension. The native extension has passed representative Linux, macOS, and Windows matrices, PHPT tests, and source-package builds. Composer packages have passed installation and diagnostic integration on PHP 8.2 and 8.4 against a pinned extension commit. The complete component matrix, real ingestion path, and official artifact publication have not yet been completed, so there is no official Beacon PHP release or installation entry.
 
-以下开发入口已推送到 GitHub `main` 分支。文档会随开发进展更新，不作为正式版本的安装或支持承诺。
+The following development entry points are available on the GitHub `main` branch. Their contents may change as development progresses and do not constitute installation instructions or support commitments for an official release.
 
-| 入口 | 开发地址 |
+| Entry | Development URL |
 | --- | --- |
-| 源码仓库 | [beacon-observability/beacon-php](https://github.com/beacon-observability/beacon-php) |
-| 原生扩展仓库 | [beacon-observability/beacon-php-instrumentation](https://github.com/beacon-observability/beacon-php-instrumentation) |
-| 开发说明 | [Beacon PHP 开发入口](https://github.com/beacon-observability/beacon-php/blob/main/beacon/README.md) |
-| 源码来源 | [上游基线记录](https://github.com/beacon-observability/beacon-php/blob/main/beacon/upstream.lock.json) |
-| 上游维护 | [OTel 同步流程](https://github.com/beacon-observability/beacon-php/blob/main/beacon/UPSTREAM.md) |
-| 发行准备 | [发行准备项](https://github.com/beacon-observability/beacon-php/blob/main/beacon/RELEASING.md) |
-| 扩展工程说明 | [Beacon PHP Instrumentation 开发入口](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/README.md) |
-| 扩展来源 | [扩展双来源基线](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/upstream.lock.json) |
+| Source repository | [beacon-observability/beacon-php](https://github.com/beacon-observability/beacon-php) |
+| Native extension repository | [beacon-observability/beacon-php-instrumentation](https://github.com/beacon-observability/beacon-php-instrumentation) |
+| Development guide | [Beacon PHP development entry](https://github.com/beacon-observability/beacon-php/blob/main/beacon/README.md) |
+| Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-php/blob/main/beacon/upstream.lock.json) |
+| Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-php/blob/main/beacon/UPSTREAM.md) |
+| Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-php/blob/main/beacon/RELEASING.md) |
+| Extension development guide | [Beacon PHP Instrumentation development entry](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/README.md) |
+| Extension provenance | [Dual-source extension baseline](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/upstream.lock.json) |
 
-首次发行后，本页再补充固定版本的安装与 Release 链接。
+After the initial release, this page will link to version-specific installation instructions and the corresponding GitHub Release.
 
-## 支持范围的维护方式
+## Maintaining Support Scope
 
-正式发行后，各语言的版本文档负责列出已验证的遥测与增强能力、运行环境、接收端兼容范围、已知限制及升级回退方法。
+After an official release, each language's versioned documentation must list its validated telemetry and enhancement capabilities, runtime environments, ingestion compatibility, known limitations, and upgrade and rollback procedures.
 
-本仓库需要跨语言对比时，只汇总带有明确版本和证据链接的能力状态，不复制完整运行矩阵。涉及 DataKit 的接入，以实际验证的版本和协议为准。源码存在、构建成功或上游支持均不能单独作为 Beacon 已支持的依据。
+When a cross-language comparison is needed, this repository only summarizes capabilities backed by an explicit version and evidence link; it does not duplicate complete test matrices. DataKit integration must be tied to the versions and protocols actually validated. Source availability, a successful build, or upstream support is not sufficient on its own to claim Beacon support.

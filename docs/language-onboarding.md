@@ -1,57 +1,57 @@
-# 新语言接入与首次发行经验
+# New Language Onboarding and Initial Release Guide
 
-本页整理 Java、Python 和 PHP 工程准备过程中可复用的判断顺序，供未来接入其他语言时参考。它不是所有语言必须照搬的实现模板，也不表示被评估的语言已建立工程、具备能力或确定发行计划。各语言的具体基线、命令、测试和发行步骤由[语言项目](languages.md)链接的对应仓库维护。
+This guide captures a reusable decision sequence learned while preparing the Java, Python, and PHP projects. It is not a mandatory implementation template for every language, nor does it imply that any language under evaluation has an established project, supported capabilities, or a committed release plan. Language-specific baselines, commands, tests, and release procedures belong in the repositories linked from [Language Projects](languages.md).
 
-## 先确定边界，再建仓库
+## Define Boundaries Before Creating a Repository
 
-1. 明确用户需要的语言、上游项目、拟保留的自有能力及现有代码来源。先盘点旧包、旧命令、许可证、兼容性和迁移影响，区分历史实现与新产品能力。
-2. 选择适合该语言的维护方式：完整源码下游、依赖上游扩展或其他方式均需说明取舍。Java、Python 和 PHP Contrib 使用完整源码下游，不意味着其他语言也应如此；PHP 同时依赖独立维护的原生扩展，说明单一语言也可能组合不同维护方式。是否使用 GitHub Fork 与是否保留上游历史是不同问题。
-3. 为语言工程确定独立仓库与上游来源。保留可追溯的历史和明确的上游版本、提交及关键依赖；将同步、构建、测试说明放在语言仓库。本仓库只提供入口和公共原则。
-4. 给新语言准备自己的发行范围、维护者和发布权限，不预设与其他语言锁步或存在统一 Beacon 版本。
+1. Identify the requested language, upstream project, Beacon-specific capabilities to preserve, and all existing code sources. Inventory former packages and commands, licenses, compatibility, and migration impacts. Keep historical implementation status separate from new product capabilities.
+2. Select a maintenance model appropriate to the language. Complete-source downstream maintenance, extending an upstream dependency, and other approaches all require an explicit rationale. Java, Python, and PHP Contrib use complete-source downstream maintenance, but other languages need not follow them. PHP also depends on a separately maintained native extension, demonstrating that one language may combine several maintenance models. Using a GitHub fork and preserving upstream history are separate decisions.
+3. Define an independent repository and upstream provenance for the language project. Preserve traceable history and pin upstream versions, commits, and key dependencies. Keep synchronization, build, and test instructions in the language repository; this repository only provides entry points and shared principles.
+4. Assign the language its own release scope, maintainers, and publishing permissions. Do not assume lockstep releases or a unified Beacon version.
 
-## 建立可重复的代码同步方式
+## Establish a Reproducible Synchronization Process
 
-- 分开记录官方上游、历史自有代码和 Beacon 主线的来源；核对所采用的正式标签及完整提交，并记录与其配套的关键依赖。不能只写“跟随最新版”或从当前上游主线推断已采用的基线。
-- 首次导入和后续更新都应保留可追溯的上游历史与自有差异。先评估上游变化和冲突，在独立分支完成同步、适配与回归；不要用新的上游目录直接覆盖下游增强。采用新基线后，再更新语言仓库的来源记录与依赖锁定。
-- 每次同步复核继承的构建、CI 和发布配置，避免把上游包名、发布目标或凭证流程误用到 Beacon。同步步骤、冲突处理和验证命令由语言仓库维护；仅抓取代码或完成合并不等于通过验证或可以发行。
+- Record official upstream sources, historical Beacon-specific code, and the Beacon mainline separately. Verify the adopted release tag and complete commit, together with key dependencies. Do not write only "track the latest version" or infer an adopted baseline from the current upstream main branch.
+- Preserve traceable upstream history and Beacon-specific differences during the initial import and every later update. Evaluate upstream changes and conflicts first, then synchronize, adapt, and run regression tests on an isolated branch. Never overwrite downstream enhancements with a fresh upstream directory. After adopting a baseline, update the language repository's provenance record and dependency pins.
+- Reassess inherited build, CI, and publishing configuration during every synchronization to prevent upstream package names, release destinations, or credential flows from being used for Beacon. Keep synchronization steps, conflict handling, and validation commands in the language repository. Fetching or merging code alone does not mean validation has passed or a release is ready.
 
-## 把产品身份、制品名和版本说清楚
+## Define Product Identity, Artifacts, and Versions
 
-- 对外统一使用 Beacon 加语言名称；在确定注册包、命令或模块名之前，核对对应包索引的名称归属、生态约定和迁移成本。历史品牌仅用于来源说明，不把旧制品当作 Beacon 发行。
-- 先列出首版实际交付的制品、名称、发布渠道及必选、可选关系，核对名称与既有项目是否冲突，并明确旧包如何迁移。Profiling 等能力是否单独打包，取决于该语言的实现和验证结果，不因 Python 的包结构而自动纳入其他语言。
-- 区分 Beacon 自有版本与上游版本：前者标识实际发行制品，后者记录采用的基线。相互关联但不混用；同一语言有多个自有制品时，应说明它们是否同版及如何校验一致性。
-- 候选版、正式版、源码标签和包索引制品各有状态。只有真实发布并验收的版本才能提供正式安装入口；已推送代码、能构建 wheel 或归档包、存在候选版本号，都不等于已经发行。
+- Use Beacon plus the language name consistently in public material. Before choosing registered package, command, or module names, verify package-index ownership, ecosystem conventions, and migration cost. Historical brands are provenance information, not Beacon releases.
+- List the actual artifacts in the initial release, their names, publication channels, and required or optional relationships. Check for conflicts with existing projects and define migration from former packages. Whether Profiling or another capability ships separately depends on that language's implementation and validation; Python's package structure does not automatically apply elsewhere.
+- Distinguish the Beacon release version from upstream versions. The former identifies released Beacon artifacts; the latter records their baseline. They are related but not interchangeable. If a language produces several Beacon artifacts, state whether they share a version and how their consistency is verified.
+- Release candidates, official releases, source tags, and package-index artifacts have separate states. Only an artifact that has actually been published and accepted can receive an official installation entry. Pushed code, a successful wheel or archive build, or a candidate version number does not constitute a release.
 
-## 从固定源码打包并检查制品
+## Build from Pinned Source and Inspect Artifacts
 
-- 在语言仓库定义构建入口和实际交付格式，例如生态包、可执行归档或容器镜像；不预设所有语言都有相同的包结构。构建输入应固定到已核对的源码提交、上游基线和依赖来源，明确哪些文件及自有增强进入制品。
-- 检查生成制品的名称、版本、依赖约束、入口点、许可证和必要元数据；有多个制品时，还要验证它们之间的依赖与版本关系。发布时使用经过验证的同一批制品，避免测试后重新构建出不同内容。
-- 在干净环境从候选制品安装并运行，不仅测试源码目录。记录制品摘要；发布后再从正式渠道安装复验。具体打包工具和命令留在语言仓库。
+- Define the build entry point and actual deliverable formats in the language repository, such as ecosystem packages, executable archives, or container images. Do not impose one package structure on every language. Build inputs must pin verified source commits, upstream baselines, and dependency sources, and must identify which files and Beacon-specific enhancements enter the artifact.
+- Inspect artifact names, versions, dependency constraints, entry points, licenses, and required metadata. For multiple artifacts, also validate dependency and version relationships. Release the same artifacts that passed validation rather than rebuilding different artifacts afterward.
+- Install and run candidate artifacts in clean environments, not only from the source tree. Record artifact digests. After publication, reinstall from the official channel and validate again. Detailed packaging tools and commands belong in the language repository.
 
-## 按证据推进首发
+## Advance the Initial Release Through Evidence
 
-| 阶段 | 要留下的证据 | 不能据此宣称 |
+| Stage | Required evidence | Claims that the evidence does not support |
 | --- | --- | --- |
-| 来源确定 | 上游及自有代码来源、固定提交、许可证核对 | 已兼容后续所有上游版本 |
-| 代码同步 | 采用的基线、自有差异、冲突处理和受影响测试 | 合并完成就等于可以发行 |
-| 打包通过 | 从固定源码得到的候选制品、名称、版本、依赖与元数据 | 制品已发布或可在生产环境使用 |
-| 本地验证 | 自有回归测试、目标运行环境中的全新安装和启动验证 | 完整上游矩阵或接收端链路已验证 |
-| 链路验收 | 与实际接收端、所声明协议及版本对应的遥测验证记录 | 未测试的环境和能力也受支持 |
-| 正式发行 | 固定标签、不可变制品、版本说明、已知限制和回退方法 | 其他语言同步具备相同能力 |
+| Provenance established | Upstream and Beacon-specific sources, pinned commits, and license review | Compatibility with all future upstream versions |
+| Code synchronized | Adopted baseline, Beacon-specific differences, conflict handling, and affected tests | A completed merge means the project is release-ready |
+| Packaging passed | Candidate artifacts built from pinned source, with names, versions, dependencies, and metadata | Artifacts have been published or are production-ready |
+| Local validation | Beacon-specific regression tests plus clean installation and startup in target environments | The complete upstream matrix or ingestion path has been validated |
+| Ingestion acceptance | Telemetry validation tied to the actual receiver, declared protocol, and version | Untested environments and capabilities are also supported |
+| Official release | Pinned tag, immutable artifacts, release notes, known limitations, and rollback procedure | Other languages automatically provide the same capabilities |
 
-如需发布到包索引，发布前还需确认公开包名可用；所有发行方式都应确认发布权限和审批、升级/回退路径。发布后从公开索引或下载入口重新安装并复验，再将固定版本的文档与 Release 链接更新到[语言项目](languages.md)。发行失败后不覆盖已发布的同版本制品，按对应生态规则发布新版本。
+Before publishing to a package index, verify that the public package name is available. Every release mechanism must have confirmed publishing permission and approval, upgrade, and rollback paths. After release, install again from the public index or download entry and add links to the pinned documentation and GitHub Release in [Language Projects](languages.md). If publication fails, do not overwrite an already published artifact with the same version; issue a new version according to the ecosystem's rules.
 
-## CI 和发布自动化保持最小必要范围
+## Keep CI and Release Automation to the Minimum Needed
 
-- 日常 CI 以已声明需要支持的运行环境与自有改动为核心。同步上游所需的广泛测试可按风险单独执行，不直接把继承的上游发布流程当作 Beacon 的发布入口。新增工作流前先确认谁使用、验证什么、运行成本和权限边界。
-- 区分排队时间与实际执行时间。任务长期处于 `queued` 时，先查 runner 可用性、组织设置、并发和配额，再评估矩阵及重复构建；迁到自托管服务器可能省去排队，但单台服务器也可能使原本并行的任务串行化，不能预先承诺更快。
-- 公开仓库的 PR 会运行外部提交代码，不应直接交给可访问内部资源的长期自托管 runner。确需自托管时，先设计隔离、最小权限和任务后销毁，并按实际容量验证效果；发布凭证与普通 PR 测试隔离。
-- 发布流程应验证固定标签与制品，将构建测试和上传权限分开，按目标发行渠道使用适合的身份认证与人工审批。同一流程发布多个制品时，提前核对平台是否允许共享发布身份。Python 当前使用的 PyPI Trusted Publisher 和 GitHub Environment 是具体方案，其他语言不能直接复制。
+- Daily CI should focus on declared runtime support and Beacon-specific changes. Broader testing required for an upstream synchronization may run separately and must not automatically turn inherited upstream publishing workflows into Beacon release entry points. Before adding a workflow, identify its consumer, what it validates, its execution cost, and its permission boundaries.
+- Separate queue time from execution time. If jobs remain `queued`, investigate runner availability, organization settings, concurrency, and quotas before reducing matrices or duplicate builds. Moving to a self-hosted server may remove queue delays, but one server may serialize previously parallel jobs, so faster completion cannot be promised without measurement.
+- Pull requests in public repositories execute untrusted external code and must not run directly on long-lived self-hosted runners with access to internal resources. When self-hosting is necessary, design isolation, least privilege, and teardown after each job, then validate the design at actual capacity. Isolate release credentials from ordinary pull-request testing.
+- Release workflows must validate pinned tags and artifacts and separate build-and-test permissions from upload permissions. Use identities and manual approvals appropriate to each publication channel. Before releasing multiple artifacts from one workflow, verify that the platform permits them to share a publishing identity. The PyPI Trusted Publisher and GitHub Environment setup currently used by Python is language-specific and must not be copied automatically.
 
-## 文档只写实际状态
+## Document Only Actual Status
 
-- 语言仓库 README 展示产品与开发入口；确需展示 Beacon 贡献者时，仅放经确认的人名与头像，不把来源追溯、旧提交或自动统计混进人员展示。代码来源以 Git 历史和基线记录说明。
-- 开发文档可指向分支，但必须标明会变化；正式安装、支持范围和验证结论应指向已发布标签或固定提交。未正式发行时明确写“开发中”，不把开发安装示例写成正式发行入口。
-- 在产品仓库更新语言入口和状态即可；版本细节、完整测试矩阵、上游同步命令及发布操作留在语言仓库，避免两处说明漂移。
+- A language repository README presents the product and development entry points. If confirmed Beacon contributors need to be shown, list only verified names and avatars; do not mix provenance, old commits, or automatic statistics into a contributor display. Git history and baseline records are the source of truth for code provenance.
+- Development documentation may link to a branch, but it must state that the content can change. Official installation, support scope, and validation conclusions must link to a release tag or pinned commit. Before an official release, label the project "under development" and do not present development installation examples as official installation entry points.
+- Update this product repository with language entry points and current status. Keep version details, complete test matrices, upstream synchronization commands, and release procedures in the language repository to prevent the two sources from drifting.
 
-未来接入其他语言时，先完成上述取舍与证据，再确定是否需要新的工具、清单或自动化；不要仅因为现有语言已有某项流程就复制到新工程。公共约束见[维护原则](maintenance.md)。
+When onboarding another language, make these decisions and collect the required evidence before introducing new tools, manifests, or automation. Do not copy a process solely because an existing language has it. See [Maintenance Principles](maintenance.md) for shared constraints.

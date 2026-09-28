@@ -1,22 +1,22 @@
 # Beacon
 
-Beacon 是基于 OpenTelemetry 维护的多语言应用探针。各语言独立开发和发行，具体能力与支持范围以对应语言文档为准。
+Beacon is a multi-language application instrumentation agent based on OpenTelemetry. Each language is developed and released independently; refer to the corresponding language documentation for its capabilities and support scope.
 
-本仓库是产品与文档入口，不承载探针实现。
+This repository is the product and documentation entry point. It does not contain agent implementations.
 
-各语言独立演进：.NET 已提供正式发行，Java、Python 和 PHP 仍在开发验证阶段，Go 尚待建立工程。项目入口和最新状态统一维护在[语言项目](docs/languages.md)中。
+Each language evolves independently: .NET has an official release; Java, Python, and PHP remain under development and validation; Go and Node.js projects have not yet been established. Project entry points and current status are maintained in [Language Projects](docs/languages.md).
 
-## 文档入口
+## Documentation
 
-- [语言项目](docs/languages.md)：各语言仓库、开发文档和发行状态。
-- [维护原则](docs/maintenance.md)：仓库分工、上游同步和发布要求。
-- [新语言接入与首次发行经验](docs/language-onboarding.md)：供后续语言复用的判断顺序与验收边界。
-- [路线图](docs/roadmap.md)：后续建设方向，不作为已支持能力或交付期限承诺。
+- [Language Projects](docs/languages.md): language repositories, development documentation, and release status.
+- [Maintenance Principles](docs/maintenance.md): repository boundaries, upstream synchronization, and release requirements.
+- [New Language Onboarding and Initial Release Guide](docs/language-onboarding.md): a reusable decision and validation guide for future languages.
+- [Roadmap](docs/roadmap.md): future development directions, not commitments to supported capabilities or delivery dates.
 
-## 如何使用本仓库
+## Using This Repository
 
-- 使用探针：正式发行后，从语言入口查看对应版本的安装、配置与支持范围。
-- 开发探针：在对应语言仓库修改代码、同步上游、运行测试和发行。
-- 维护产品文档：在本仓库更新语言入口、公共约定和跨语言支持信息。
+- To use an agent: after an official release, find installation instructions, configuration, and support scope through its language entry.
+- To develop an agent: modify code, synchronize upstream changes, run tests, and create releases in the corresponding language repository.
+- To maintain product documentation: update language entry points, shared policies, and cross-language support information in this repository.
 
-语言版本独立演进，本仓库不另设统一的 Beacon 组合版本。
+Language versions evolve independently. This repository does not define a unified Beacon product version.

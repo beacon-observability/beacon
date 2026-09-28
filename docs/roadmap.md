@@ -1,41 +1,48 @@
-# 路线图
+# Roadmap
 
-本页记录建设方向，不代表能力已经支持，也不预设交付日期。具体任务、负责人和进度在对应工程中维护。
+This page records development directions. It does not represent supported capabilities or committed delivery dates. Concrete tasks, owners, and progress are maintained in the corresponding projects.
 
-## 近期：完成 Java 开发与发行闭环
+## Near Term: Complete the Java Development and Release Cycle
 
-- 盘点已导入的既有下游改动，确定保留的增强及其测试。
-- 从固定源码完成构建、运行验证，并演练一次官方版本同步。
-- 建立 Beacon Java 的版本标识、制品、发布说明与升级回退流程。
-- 评估并验证 Profiling、SecurityContext 的集成；只有确认进入发布范围的能力才作为该版本的验收要求。
-- 使用实际接收端完成数据链路验证，记录兼容范围。
+- Inventory the imported downstream changes and identify the enhancements and tests to retain.
+- Build from pinned source, validate runtime behavior, and rehearse one official-version synchronization.
+- Establish Beacon Java versioning, artifacts, release notes, and upgrade and rollback procedures.
+- Evaluate and validate Profiling and SecurityContext integration. Only capabilities confirmed for a release become acceptance requirements for that version.
+- Validate telemetry with an actual receiver and document the compatible scope.
 
-Java 采用保留旧仓库、向新仓库导入完整历史的迁移路径。迁移时核对访问权限、旧用户入口和继承的工作流。目标仓库与开发文档见 [Java 项目入口](languages.md#java)。
+Java follows a migration path that preserves the former repository while importing its complete history into the new repository. The migration must verify access permissions, former user entry points, and inherited workflows. See the [Java project entry](languages.md#java) for the target repository and development documentation.
 
-## 近期：推进 Python 开发与发行闭环
+## Near Term: Complete the Python Development and Release Cycle
 
-- 已建立完整 OpenTelemetry Python Contrib 源码下游工程，保留旧 `gtrace` 增强历史并合入固定正式基线；开发状态见 [Python 项目入口](languages.md#python)。
-- 验证完整上游测试矩阵、自有增强与 DataKit 数据链路，明确实际支持的 Python 环境和限制。
-- 确定 Beacon 产品包身份、构建、发行与升级回退流程；首次正式发行后补充固定版本的用户文档。
+- A complete-source OpenTelemetry Python Contrib downstream project has been established, preserving the former `gtrace` enhancement history and incorporating a pinned official baseline. See the [Python project entry](languages.md#python) for current development status.
+- Validate the complete upstream test matrix, Beacon-specific enhancements, and the DataKit ingestion path, then define the actually supported Python environments and limitations.
+- Finalize Beacon product packages, build and release processes, and upgrade and rollback procedures. Add version-specific user documentation after the initial official release.
 
-## 后续：推进 Go
+## Later: Develop Go
 
-- 盘点现有实现，确定上游项目、源码或依赖维护方式及增强范围。
-- 建立构建、测试、上游跟进和发行流程。
-- 补充语言接入文档与实际支持状态，沿用公共维护原则。
+- Inventory existing implementations and select the upstream project, source or dependency maintenance model, and enhancement scope.
+- Establish build, test, upstream-tracking, and release processes.
+- Add language onboarding documentation and actual support status under the shared maintenance principles.
 
-Java 的完整源码下游方式已用于 Python 和 PHP Contrib，但不要求 Go 复用相同分支布局、打包方式或功能清单。各语言可按资源和成熟度并行推进，独立完成验收与发行。
+The complete-source downstream approach used by Java has also been adopted for Python and PHP Contrib, but Go does not need to reuse the same branch layout, packaging, or feature list. Languages may progress independently according to available resources and maturity, and each completes its own validation and release.
 
-## 后续：完成 PHP 验证与发行闭环
+## Later: Develop Node.js
 
-- 已分别建立 OpenTelemetry PHP Contrib 与原生扩展的完整源码下游工程，组件包通过固定提交依赖 Beacon 扩展；开发状态见 [PHP 项目入口](languages.md#php)。
-- 验证目标 PHP 版本、扩展版本和首批组件插桩，完成实际接收端数据链路测试。
-- 确定 Composer 包的正式版本策略、发布权限、升级与回退流程；首次正式发行后补充固定版本的用户文档。
+- Base the project on the official [OpenTelemetry JavaScript Contrib](https://github.com/open-telemetry/opentelemetry-js-contrib) repository and merge the latest official upstream changes available when development begins.
+- Validate the merged source, record the exact adopted commit or version, and identify its license, accompanying core dependencies, and any Beacon-specific differences to maintain.
+- Decide the Beacon Node.js project location, integration model, and Beacon-specific enhancement scope.
+- Establish build, test, upstream-tracking, and independent release processes. Validate target Node.js environments and an actual ingestion path before claiming support.
 
-## 随实际需求增加
+## Later: Complete PHP Validation and Release
 
-- 上游更新检测与同步辅助自动化。
-- 多语言接入示例和文档站点。
-- 经验证的服务标识、上下文、Profiling 和安全数据关联说明。
+- Complete-source downstream projects have been established separately for OpenTelemetry PHP Contrib and the native extension. Component packages are tested against a pinned Beacon extension commit. See the [PHP project entry](languages.md#php) for current development status.
+- Validate the target PHP versions, extension versions, and initial component instrumentations, including an actual ingestion path.
+- Finalize the Composer packages' official versioning, publishing permissions, and upgrade and rollback procedures. Add version-specific user documentation after the initial official release.
 
-暂不预设统一运行时、跨语言锁步发行、远程控制平台或新的安装注入系统。新增建设应解决明确的用户或维护问题。
+## As Real Needs Emerge
+
+- Upstream update detection and synchronization assistance.
+- Multi-language onboarding examples and a documentation site.
+- Validated guidance for service identity, context, Profiling, and security-data correlation.
+
+The roadmap does not assume a unified runtime, lockstep cross-language releases, a remote-control platform, or a new installation and injection system. New work must address a concrete user or maintenance need.
