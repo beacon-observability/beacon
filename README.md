@@ -9,6 +9,7 @@ Each language evolves independently: .NET has an official release; Java, Node.js
 ## Documentation
 
 - [Language Projects](docs/languages.md): language repositories, development documentation, and release status.
+- [Beacon Security Specification](https://github.com/beacon-observability/beacon-security-spec): the shared, language-neutral development contract for Security events, identity, configuration, fingerprints, and runtime SBOM data. It is not an implementation or release commitment.
 - [Maintenance Principles](docs/maintenance.md): repository boundaries, upstream synchronization, and release requirements.
 - [New Language Onboarding and Initial Release Guide](docs/language-onboarding.md): a reusable decision and validation guide for future languages.
 - [Roadmap](docs/roadmap.md): future development directions, not commitments to supported capabilities or delivery dates.

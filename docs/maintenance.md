@@ -6,10 +6,15 @@
 | --- | --- |
 | Product overview, language entry points, cross-language support status, and shared principles | `beacon` |
 | Language source, enhancements, configuration, tests, upstream baseline, builds, and releases | The corresponding language repository |
-| Implementations and protocols for independent components such as SecurityContext | The component's own repository |
+| Shared contract for Beacon Security events, identity, configuration, fingerprints, and runtime SBOM data | [beacon-security-spec](https://github.com/beacon-observability/beacon-security-spec) |
+| Language-specific Beacon Security implementation, coverage, tests, configuration bindings, and release evidence | The corresponding language repository |
 | Ingestion, processing, and platform presentation | DataKit and the corresponding platform projects |
 
 Each fact has one authoritative source. The product repository links to language documentation and release records; it does not manually duplicate source commits, dependency versions, or checksums. Changes to cross-component interfaces are reviewed by the affected repositories. This repository only summarizes compatibility impacts relevant to users.
+
+Language implementations pin an immutable revision of the shared Beacon Security specification.
+The specification does not imply that every language implements the capability or that any
+implementation has completed release acceptance.
 
 ## Upstream Maintenance
 

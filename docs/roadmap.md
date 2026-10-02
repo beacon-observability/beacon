@@ -7,7 +7,7 @@ This page records development directions. It does not represent supported capabi
 - Inventory the imported downstream changes and identify the enhancements and tests to retain.
 - Build from pinned source, validate runtime behavior, and rehearse one official-version synchronization.
 - Establish Beacon Java versioning, artifacts, release notes, and upgrade and rollback procedures.
-- Evaluate and validate Profiling and SecurityContext integration. Only capabilities confirmed for a release become acceptance requirements for that version.
+- Continue Profiling evaluation. Integrate the Java Security implementation against the shared [Beacon Security specification](https://github.com/beacon-observability/beacon-security-spec), then complete release acceptance. The specification and local implementation evidence do not by themselves make Security a released Java capability.
 - Validate telemetry with an actual receiver and document the compatible scope.
 
 Java follows a migration path that preserves the former repository while importing its complete history into the new repository. The migration must verify access permissions, former user entry points, and inherited workflows. See the [Java project entry](languages.md#java) for the target repository and development documentation.
@@ -43,6 +43,8 @@ The complete-source downstream approach used by Java has also been adopted for P
 
 - Upstream update detection and synchronization assistance.
 - Multi-language onboarding examples and a documentation site.
+- Additional language implementations of the shared Beacon Security contract, each owned,
+  validated, and released independently in its language repository.
 - Validated guidance for service identity, context, Profiling, and security-data correlation.
 
 The roadmap does not assume a unified runtime, lockstep cross-language releases, a remote-control platform, or a new installation and injection system. New work must address a concrete user or maintenance need.
