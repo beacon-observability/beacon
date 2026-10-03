@@ -6,19 +6,31 @@ Before onboarding a new language, use the [New Language Onboarding and Initial R
 
 ## Java
 
-Beacon Java uses a downstream copy of the complete OpenTelemetry Java Instrumentation source, preserves upstream history, and adds Beacon-specific enhancements in the corresponding modules. The project is currently being prepared and has no official Beacon Java release.
+Beacon Java uses a downstream copy of the complete OpenTelemetry Java Instrumentation source,
+preserves upstream history, and adds Beacon-specific enhancements in the corresponding modules.
+The current official release is `1.1.0`. It publishes one complete Agent JAR together with its
+SHA-256 checksum, SPDX SBOM, provenance, licenses, notices, and GitHub build-provenance
+attestations.
 
-The following development entry points are available on GitHub and track the `main` development branch. Their contents may change with the branch and do not constitute installation instructions or support commitments for an official release.
+Beacon Security is embedded in that complete Agent as an opt-in capability and is disabled by
+default. Applications still use one `-javaagent`; this release does not publish a standalone
+Security JAR or a Beacon-owned container image. Refer to the release and pinned usage guide for
+the exact configuration, capabilities, deployment example, and limitations.
 
-| Entry | Development URL |
+| Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-java](https://github.com/beacon-observability/beacon-java) |
-| Development guide | [Beacon Java development entry](https://github.com/beacon-observability/beacon-java/blob/main/beacon/README.md) |
-| Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-java/blob/main/beacon/upstream.lock.json) |
+| Current release | [Beacon Java 1.1.0](https://github.com/beacon-observability/beacon-java/releases/tag/v1.1.0) |
+| Installation and Security usage | [Beacon Java 1.1.0 usage guide](https://github.com/beacon-observability/beacon-java/blob/cc55c77be6247d4f0e3835639002415b683a220b/extensions/security/README.md) |
+| Kubernetes initContainer example | [Beacon Java 1.1.0 Kubernetes example](https://github.com/beacon-observability/beacon-java/blob/cc55c77be6247d4f0e3835639002415b683a220b/extensions/security/examples/kubernetes/init-container.yaml) |
+| Source provenance | [Beacon Java 1.1.0 upstream baseline](https://github.com/beacon-observability/beacon-java/blob/v1.1.0/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-java/blob/main/beacon/UPSTREAM.md) |
-| Release development | [Release process and prerequisites](https://github.com/beacon-observability/beacon-java/blob/main/beacon/RELEASING.md) |
+| Release maintenance | [Beacon Java release process](https://github.com/beacon-observability/beacon-java/blob/main/beacon/RELEASING.md) |
 
-These links point to development documentation that changes with the development branch. They do not represent installation instructions or support commitments for a particular official release. After the initial release, this page will link to version-specific user documentation and the corresponding GitHub Release.
+The usage guide is pinned to a documentation-only correction merged after `v1.1.0`; it does not
+change or replace the immutable release artifacts. The language repository's release record remains
+authoritative for exact scope and evidence. Links to `main` are maintainer references and may
+change with ongoing development.
 
 ## .NET
 
