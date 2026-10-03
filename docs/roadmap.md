@@ -2,15 +2,21 @@
 
 This page records development directions. It does not represent supported capabilities or committed delivery dates. Concrete tasks, owners, and progress are maintained in the corresponding projects.
 
-## Near Term: Complete the Java Development and Release Cycle
+## Near Term: Maintain and Expand Beacon Java
 
-- Inventory the imported downstream changes and identify the enhancements and tests to retain.
-- Build from pinned source, validate runtime behavior, and rehearse one official-version synchronization.
-- Establish Beacon Java versioning, artifacts, release notes, and upgrade and rollback procedures.
-- Continue Profiling evaluation. Integrate the Java Security implementation against the shared [Beacon Security specification](https://github.com/beacon-observability/beacon-security-spec), then complete release acceptance. The specification and local implementation evidence do not by themselves make Security a released Java capability.
+- Beacon Java `1.1.0` is published as a complete Agent JAR with checksum, SPDX SBOM, provenance,
+  licenses, notices, and build-provenance attestations. Its opt-in Security capability is embedded
+  in the Agent and follows the shared
+  [Beacon Security specification](https://github.com/beacon-observability/beacon-security-spec).
+- Exercise the documented upstream synchronization process against a later official version and
+  keep Beacon-specific enhancements and regression evidence controlled.
+- Continue Profiling evaluation. Profiling remains experimental and is not implied by the released
+  Security capability.
 - Validate telemetry with an actual receiver and document the compatible scope.
 
-Java follows a migration path that preserves the former repository while importing its complete history into the new repository. The migration must verify access permissions, former user entry points, and inherited workflows. See the [Java project entry](languages.md#java) for the target repository and development documentation.
+Java preserves the imported repository history and maintains its implementation, CI, and releases
+in the language repository. See the [Java project entry](languages.md#java) for the current release
+and maintainer documentation.
 
 ## Near Term: Complete the Python Development and Release Cycle
 
