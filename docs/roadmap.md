@@ -18,11 +18,14 @@ Java preserves the imported repository history and maintains its implementation,
 in the language repository. See the [Java project entry](languages.md#java) for the current release
 and maintainer documentation.
 
-## Near Term: Complete the Python Development and Release Cycle
+## Near Term: Extend the Python Release
 
-- A complete-source OpenTelemetry Python Contrib downstream project has been established, preserving the former `gtrace` enhancement history and incorporating a pinned official baseline. See the [Python project entry](languages.md#python) for current development status.
-- Validate the complete upstream test matrix, Beacon-specific enhancements, and the DataKit ingestion path, then define the actually supported Python environments and limitations.
-- Finalize Beacon product packages, build and release processes, and upgrade and rollback procedures. Add version-specific user documentation after the initial official release.
+- Beacon Python `1.0.1` is published through the documented Trusted Publisher workflow. See the
+  [Python project entry](languages.md#python) for the current release and validation record.
+- Complete review and CI for the opt-in Security implementation in the existing `beacon-otel`
+  wheel, then validate its OTLP Logs ingestion path and runtime-SBOM behavior before releasing it.
+- Continue expanding the actually validated upstream matrix and document version-specific Security
+  support and rollback boundaries in the language repository.
 
 ## Later: Develop Go
 
@@ -32,12 +35,14 @@ and maintainer documentation.
 
 The complete-source downstream approach used by Java has also been adopted for Python and PHP Contrib, but Go does not need to reuse the same branch layout, packaging, or feature list. Languages may progress independently according to available resources and maturity, and each completes its own validation and release.
 
-## Later: Complete Node.js Validation and Release
+## Near Term: Extend the Node.js Release
 
-- A complete-source downstream project has been established from the latest official OpenTelemetry JavaScript Contrib `main` commit available at project creation, with the adopted commit pinned in the [Node.js project entry](languages.md#nodejs).
-- An experimental private profiling workspace has passed compilation and six unit tests in dedicated Beacon CI on Node.js 18.19, 20, 22, and 24. Validate the complete upstream matrix and actual ingestion path before claiming support.
-- Only the dedicated Beacon workflow is enabled; all inherited workflows remain disabled. Review every newly inherited workflow during upstream synchronization, and keep upstream publication behavior disabled.
-- Finalize package identity, artifacts, publishing permissions, and upgrade and rollback procedures before the initial official release.
+- Beacon Node.js `1.1.0` publishes the complete zero-code product package and matching profiler
+  package. See the [Node.js project entry](languages.md#nodejs) for the current release evidence.
+- Complete review and CI for the opt-in Security implementation in the existing zero-code package,
+  then validate its OTLP Logs ingestion path and runtime-SBOM behavior before releasing it.
+- Continue expanding the actually validated upstream matrix and document version-specific Security
+  support and rollback boundaries in the language repository.
 
 ## Later: Complete PHP Validation and Release
 
@@ -49,8 +54,9 @@ The complete-source downstream approach used by Java has also been adopted for P
 
 - Upstream update detection and synchronization assistance.
 - Multi-language onboarding examples and a documentation site.
-- Additional language implementations of the shared Beacon Security contract, each owned,
-  validated, and released independently in its language repository.
+- Maintain Java's released Security capability and complete the Node.js and Python integrations of
+  the shared Beacon Security contract, with each implementation owned, validated, and released by
+  its corresponding language repository.
 - Validated guidance for service identity, context, Profiling, and security-data correlation.
 
 The roadmap does not assume a unified runtime, lockstep cross-language releases, a remote-control platform, or a new installation and injection system. New work must address a concrete user or maintenance need.
