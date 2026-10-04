@@ -4,10 +4,12 @@ Beacon is a multi-language application instrumentation agent based on OpenTeleme
 
 This repository is the product and documentation entry point. It does not contain agent implementations.
 
-Each language evolves independently: Java and .NET have official releases; the PHP native
-instrumentation has a component release; Node.js, Python, and the complete PHP distribution remain
-under development and validation; the Go project has not yet been established. Project entry
-points and current status are maintained in [Language Projects](docs/languages.md).
+Each language evolves independently: Java, Node.js, Python, and .NET have official releases; the
+PHP native instrumentation has a component release; the complete PHP distribution remains under
+development and validation; and the Go project has not yet been established. Beacon Security is
+released as an opt-in capability in the existing Java, Python, and Node.js product packages.
+Project entry points and current status are maintained in
+[Language Projects](docs/languages.md).
 
 ## Documentation
 

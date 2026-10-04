@@ -50,36 +50,65 @@ Beacon Go is planned for `beacon-observability/beacon-go`. The project has not y
 
 ## Node.js
 
-Beacon Node.js maintains a standalone downstream copy of the complete official OpenTelemetry JavaScript Contrib source and history. The project was established from the latest official `main` commit available at that time, `31b2af9dd5fcc5f96949e5666f8f45b30b997722`, and adds an experimental private profiling workspace without renaming inherited upstream packages.
+Beacon Node.js maintains a standalone downstream copy of the complete official OpenTelemetry
+JavaScript Contrib source and history. The current official release is `1.2.0`; it publishes the
+`@beacon-observability/nodejs` zero-code package and the matching
+`@beacon-observability/profiler-nodejs` and `@beacon-observability/security-nodejs` packages. The
+general zero-code workflow is validated on Node.js 18.19, 20, 22, and 24. Beacon Security requires
+Node.js 22.22.3+ or 24.11.1+.
 
-The dedicated Beacon CI compiles the profiling workspace and runs its six unit tests on Node.js 18.19, 20, 22, and 24. The Node.js 24 job also validates formatting, Markdown, package metadata, and example lockfiles. The complete upstream matrix, DataKit ingestion, and release-candidate artifacts have not been validated. All inherited GitHub Actions remain disabled and only the Beacon workflow is enabled, so there is still no official Beacon Node.js release or installation entry.
+Beacon Security is included in the complete zero-code package as an opt-in capability. It pins the
+shared v1 contract, exports findings and runtime SBOM through OpenTelemetry Logs, and keeps local
+diagnostic output off by default. The Kubernetes example bakes the complete package into the
+application image without a separate Security image, sidecar, or init container. Public-artifact
+acceptance verified installation from npm, zero-code trace and profile export, the disabled
+lifecycle, a path-traversal finding, runtime-SBOM export, and the local-output default.
 
-The following development entry points track the `main` development branch. Their contents may change with the branch and do not constitute installation instructions or support commitments for an official release.
+The release link is authoritative for published scope. Entries that track `main` remain maintainer
+references and may change with ongoing development.
 
-| Entry | Development URL |
+| Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-nodejs](https://github.com/beacon-observability/beacon-nodejs) |
+| Current release | [Beacon Node.js 1.2.0](https://github.com/beacon-observability/beacon-nodejs/releases/tag/v1.2.0) |
+| Published packages | [`@beacon-observability/nodejs@1.2.0`](https://www.npmjs.com/package/@beacon-observability/nodejs/v/1.2.0), [`@beacon-observability/profiler-nodejs@1.2.0`](https://www.npmjs.com/package/@beacon-observability/profiler-nodejs/v/1.2.0), and [`@beacon-observability/security-nodejs@1.2.0`](https://www.npmjs.com/package/@beacon-observability/security-nodejs/v/1.2.0) |
+| Installation and Security usage | [Beacon Node.js 1.2.0 usage guide](https://github.com/beacon-observability/beacon-nodejs/blob/v1.2.0/packages/nodejs/README.md) |
+| Kubernetes Deployment example | [Beacon Node.js 1.2.0 Kubernetes example](https://github.com/beacon-observability/beacon-nodejs/blob/v1.2.0/packages/security-nodejs/examples/kubernetes/deployment.yaml) |
+| Release validation | [Beacon Node.js 1.2.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-nodejs/blob/3f2042a4d972e6031e84f0cbdf90930de3e4858e/beacon/validation/1.2.0.md) |
 | Development guide | [Beacon Node.js development entry](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/README.md) |
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/UPSTREAM.md) |
 | Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/RELEASING.md) |
-| Initial CI validation | [Beacon Node.js CI run 36390660551](https://github.com/beacon-observability/beacon-nodejs/actions/runs/36390660551) |
 
 ## Python
 
-Beacon Python maintains a standalone downstream copy of the complete OpenTelemetry Python Contrib source and is not a GitHub fork. The development project preserves Beacon-specific enhancements and their history from the former `gtrace` branch and incorporates the official `v0.65b0` release baseline; its Python Core development dependency is pinned to `v1.44.0`. The former `gtrace` distribution has been removed. The `beacon-otel` main package and optional `beacon-profiling` development package have been implemented. Local unit tests and clean-environment installation and startup smoke tests on Python 3.10–3.14 have passed. The complete upstream matrix, DataKit ingestion, and release-candidate artifacts have not yet been validated, so there is no official Beacon Python release or installation entry.
+Beacon Python maintains a standalone downstream copy of the complete OpenTelemetry Python Contrib
+source and is not a GitHub fork. The current official release is `1.1.0`; it publishes the
+`beacon-otel` main distribution and the optional `beacon-profiling` distribution from the official
+`v0.65b0` Contrib and `v1.44.0` Core baseline. The release record and version-pinned validation
+document define the published scope. The former `gtrace` distribution is not a Beacon release.
 
-The following development entry points are available on GitHub and track the `main` development branch. Their contents may change with the branch and do not constitute installation instructions or support commitments for an official release.
+Beacon Security is embedded in the existing `beacon-otel` wheel and `beacon` command instead of
+introducing a third distribution. It is opt-in, keeps local output off by default, pins the shared
+v1 contract, supports the Security runtime on standard-GIL CPython 3.11–3.14, and includes
+Kubernetes and Gunicorn guidance. Public-artifact acceptance verified the disabled lifecycle and
+finding plus runtime-SBOM delivery through OpenTelemetry Logs.
 
-| Entry | Development URL |
+The release link is authoritative for published scope. Entries that track `main` remain maintainer
+references and may change with ongoing development.
+
+| Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-python](https://github.com/beacon-observability/beacon-python) |
+| Current release | [Beacon Python 1.1.0](https://github.com/beacon-observability/beacon-python/releases/tag/v1.1.0) |
+| Published packages | [`beacon-otel==1.1.0`](https://pypi.org/project/beacon-otel/1.1.0/) and [`beacon-profiling==1.1.0`](https://pypi.org/project/beacon-profiling/1.1.0/) |
+| Installation and Security usage | [Beacon Python 1.1.0 usage guide](https://github.com/beacon-observability/beacon-python/blob/v1.1.0/beacon-otel/README.md) |
+| Kubernetes Deployment example | [Beacon Python 1.1.0 Kubernetes example](https://github.com/beacon-observability/beacon-python/blob/v1.1.0/beacon-otel/examples/kubernetes/deployment.yaml) |
+| Release validation | [Beacon Python 1.1.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-python/blob/e3fbe55d0525b6816f3d8cfe1555a8217776da18/beacon/validation/1.1.0.md) |
 | Development guide | [Beacon Python development entry](https://github.com/beacon-observability/beacon-python/blob/main/beacon/README.md) |
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-python/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-python/blob/main/beacon/UPSTREAM.md) |
 | Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-python/blob/main/beacon/RELEASING.md) |
-
-The Git history of `beacon-python` preserves the provenance of existing Beacon-specific implementations. Former PyPI packages do not constitute a Beacon Python release. After the initial release, this page will link to version-specific installation instructions and the corresponding GitHub Release.
 
 ## PHP
 
