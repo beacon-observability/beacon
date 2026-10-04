@@ -7,8 +7,8 @@ This repository is the product and documentation entry point. It does not contai
 Each language evolves independently: Java, Node.js, Python, and .NET have official releases; the
 PHP native instrumentation has a component release; the complete PHP distribution remains under
 development and validation; and the Go project has not yet been established. Beacon Security is
-released in Java and is being integrated into the existing Node.js and Python product packages for
-future language-specific releases. Project entry points and current status are maintained in
+released in Java and Python and is being integrated into the existing Node.js product package for
+a future language-specific release. Project entry points and current status are maintained in
 [Language Projects](docs/languages.md).
 
 ## Documentation

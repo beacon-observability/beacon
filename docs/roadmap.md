@@ -20,10 +20,10 @@ and maintainer documentation.
 
 ## Near Term: Extend the Python Release
 
-- Beacon Python `1.0.1` is published through the documented Trusted Publisher workflow. See the
-  [Python project entry](languages.md#python) for the current release and validation record.
-- Complete review and CI for the opt-in Security implementation in the existing `beacon-otel`
-  wheel, then validate its OTLP Logs ingestion path and runtime-SBOM behavior before releasing it.
+- Beacon Python `1.1.0` is published through the documented Trusted Publisher workflow. Its
+  opt-in Security capability is embedded in the existing `beacon-otel` wheel, and public-artifact
+  acceptance covers the disabled lifecycle, findings, and runtime SBOM through OpenTelemetry Logs.
+  See the [Python project entry](languages.md#python) for the current release and validation record.
 - Continue expanding the actually validated upstream matrix and document version-specific Security
   support and rollback boundaries in the language repository.
 
@@ -54,9 +54,9 @@ The complete-source downstream approach used by Java has also been adopted for P
 
 - Upstream update detection and synchronization assistance.
 - Multi-language onboarding examples and a documentation site.
-- Maintain Java's released Security capability and complete the Node.js and Python integrations of
-  the shared Beacon Security contract, with each implementation owned, validated, and released by
-  its corresponding language repository.
+- Maintain the released Java and Python Security capabilities and complete the Node.js integration
+  of the shared Beacon Security contract, with each implementation owned, validated, and released
+  by its corresponding language repository.
 - Validated guidance for service identity, context, Profiling, and security-data correlation.
 
 The roadmap does not assume a unified runtime, lockstep cross-language releases, a remote-control platform, or a new installation and injection system. New work must address a concrete user or maintenance need.

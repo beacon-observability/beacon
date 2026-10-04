@@ -80,17 +80,16 @@ references and may change with ongoing development.
 ## Python
 
 Beacon Python maintains a standalone downstream copy of the complete OpenTelemetry Python Contrib
-source and is not a GitHub fork. The current official release is `1.0.1`; it publishes the
+source and is not a GitHub fork. The current official release is `1.1.0`; it publishes the
 `beacon-otel` main distribution and the optional `beacon-profiling` distribution from the official
 `v0.65b0` Contrib and `v1.44.0` Core baseline. The release record and version-pinned validation
 document define the published scope. The former `gtrace` distribution is not a Beacon release.
 
-Beacon Security is not part of `1.0.1`. The open implementation PR embeds it in the existing
-`beacon-otel` wheel and `beacon` command instead of introducing a third distribution. It is opt-in,
-keeps local output off by default, pins the shared v1 contract, supports the Security runtime on
-standard-GIL CPython 3.11–3.14, and includes Kubernetes and Gunicorn guidance. This source work and
-its CI results are development evidence, not a published Security capability or support
-commitment.
+Beacon Security is embedded in the existing `beacon-otel` wheel and `beacon` command instead of
+introducing a third distribution. It is opt-in, keeps local output off by default, pins the shared
+v1 contract, supports the Security runtime on standard-GIL CPython 3.11–3.14, and includes
+Kubernetes and Gunicorn guidance. Public-artifact acceptance verified the disabled lifecycle and
+finding plus runtime-SBOM delivery through OpenTelemetry Logs.
 
 The release link is authoritative for published scope. Entries that track `main` remain maintainer
 references and may change with ongoing development.
@@ -98,14 +97,15 @@ references and may change with ongoing development.
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-python](https://github.com/beacon-observability/beacon-python) |
-| Current release | [Beacon Python 1.0.1](https://github.com/beacon-observability/beacon-python/releases/tag/v1.0.1) |
-| Published package | [`beacon-otel==1.0.1`](https://pypi.org/project/beacon-otel/1.0.1/) |
-| Release validation | [Beacon Python 1.0.1 acceptance record](https://github.com/beacon-observability/beacon-python/blob/v1.0.1/beacon/validation/1.0.1.md) |
+| Current release | [Beacon Python 1.1.0](https://github.com/beacon-observability/beacon-python/releases/tag/v1.1.0) |
+| Published packages | [`beacon-otel==1.1.0`](https://pypi.org/project/beacon-otel/1.1.0/) and [`beacon-profiling==1.1.0`](https://pypi.org/project/beacon-profiling/1.1.0/) |
+| Installation and Security usage | [Beacon Python 1.1.0 usage guide](https://github.com/beacon-observability/beacon-python/blob/v1.1.0/beacon-otel/README.md) |
+| Kubernetes Deployment example | [Beacon Python 1.1.0 Kubernetes example](https://github.com/beacon-observability/beacon-python/blob/v1.1.0/beacon-otel/examples/kubernetes/deployment.yaml) |
+| Release validation | [Beacon Python 1.1.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-python/blob/e3fbe55d0525b6816f3d8cfe1555a8217776da18/beacon/validation/1.1.0.md) |
 | Development guide | [Beacon Python development entry](https://github.com/beacon-observability/beacon-python/blob/main/beacon/README.md) |
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-python/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-python/blob/main/beacon/UPSTREAM.md) |
 | Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-python/blob/main/beacon/RELEASING.md) |
-| Security implementation status | [Beacon Python PR #15](https://github.com/beacon-observability/beacon-python/pull/15) |
 
 ## PHP
 
