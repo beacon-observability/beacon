@@ -51,17 +51,18 @@ Beacon Go is planned for `beacon-observability/beacon-go`. The project has not y
 ## Node.js
 
 Beacon Node.js maintains a standalone downstream copy of the complete official OpenTelemetry
-JavaScript Contrib source and history. The current official release is `1.1.0`; it publishes the
+JavaScript Contrib source and history. The current official release is `1.2.0`; it publishes the
 `@beacon-observability/nodejs` zero-code package and the matching
-`@beacon-observability/profiler-nodejs` package. It supports the documented preload workflow on
-Node.js 18.19, 20, 22, and 24. Its release record contains the exact build commits, npm package
-digests, CI evidence, and verified telemetry scope.
+`@beacon-observability/profiler-nodejs` and `@beacon-observability/security-nodejs` packages. The
+general zero-code workflow is validated on Node.js 18.19, 20, 22, and 24. Beacon Security requires
+Node.js 22.22.3+ or 24.11.1+.
 
-Beacon Security is not part of `1.1.0`. The open implementation PR embeds it behind the existing
-zero-code package as an opt-in capability, pins the shared v1 contract, keeps local output off by
-default, and adds a Kubernetes example without a separate Security image, sidecar, or init
-container. This source work and its CI results are development evidence, not a published Security
-capability or support commitment.
+Beacon Security is included in the complete zero-code package as an opt-in capability. It pins the
+shared v1 contract, exports findings and runtime SBOM through OpenTelemetry Logs, and keeps local
+diagnostic output off by default. The Kubernetes example bakes the complete package into the
+application image without a separate Security image, sidecar, or init container. Public-artifact
+acceptance verified installation from npm, zero-code trace and profile export, the disabled
+lifecycle, a path-traversal finding, runtime-SBOM export, and the local-output default.
 
 The release link is authoritative for published scope. Entries that track `main` remain maintainer
 references and may change with ongoing development.
@@ -69,13 +70,15 @@ references and may change with ongoing development.
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-nodejs](https://github.com/beacon-observability/beacon-nodejs) |
-| Current release | [Beacon Node.js 1.1.0](https://github.com/beacon-observability/beacon-nodejs/releases/tag/beacon-v1.1.0) |
-| Published package | [`@beacon-observability/nodejs@1.1.0`](https://www.npmjs.com/package/@beacon-observability/nodejs/v/1.1.0) |
+| Current release | [Beacon Node.js 1.2.0](https://github.com/beacon-observability/beacon-nodejs/releases/tag/v1.2.0) |
+| Published packages | [`@beacon-observability/nodejs@1.2.0`](https://www.npmjs.com/package/@beacon-observability/nodejs/v/1.2.0), [`@beacon-observability/profiler-nodejs@1.2.0`](https://www.npmjs.com/package/@beacon-observability/profiler-nodejs/v/1.2.0), and [`@beacon-observability/security-nodejs@1.2.0`](https://www.npmjs.com/package/@beacon-observability/security-nodejs/v/1.2.0) |
+| Installation and Security usage | [Beacon Node.js 1.2.0 usage guide](https://github.com/beacon-observability/beacon-nodejs/blob/v1.2.0/packages/nodejs/README.md) |
+| Kubernetes Deployment example | [Beacon Node.js 1.2.0 Kubernetes example](https://github.com/beacon-observability/beacon-nodejs/blob/v1.2.0/packages/security-nodejs/examples/kubernetes/deployment.yaml) |
+| Release validation | [Beacon Node.js 1.2.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-nodejs/blob/3f2042a4d972e6031e84f0cbdf90930de3e4858e/beacon/validation/1.2.0.md) |
 | Development guide | [Beacon Node.js development entry](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/README.md) |
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/UPSTREAM.md) |
 | Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/RELEASING.md) |
-| Security implementation status | [Beacon Node.js PR #2](https://github.com/beacon-observability/beacon-nodejs/pull/2) |
 
 ## Python
 

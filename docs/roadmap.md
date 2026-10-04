@@ -35,12 +35,13 @@ and maintainer documentation.
 
 The complete-source downstream approach used by Java has also been adopted for Python and PHP Contrib, but Go does not need to reuse the same branch layout, packaging, or feature list. Languages may progress independently according to available resources and maturity, and each completes its own validation and release.
 
-## Near Term: Extend the Node.js Release
+## Near Term: Maintain and Expand the Node.js Release
 
-- Beacon Node.js `1.1.0` publishes the complete zero-code product package and matching profiler
-  package. See the [Node.js project entry](languages.md#nodejs) for the current release evidence.
-- Complete review and CI for the opt-in Security implementation in the existing zero-code package,
-  then validate its OTLP Logs ingestion path and runtime-SBOM behavior before releasing it.
+- Beacon Node.js `1.2.0` publishes the complete zero-code product package and matching profiler and
+  Security packages. Its opt-in Security capability is embedded in the existing zero-code preload
+  workflow, and public-artifact acceptance covers disabled-by-default behavior, findings, runtime
+  SBOM through OpenTelemetry Logs, and local-output defaults. See the
+  [Node.js project entry](languages.md#nodejs) for the current release evidence.
 - Continue expanding the actually validated upstream matrix and document version-specific Security
   support and rollback boundaries in the language repository.
 
@@ -54,9 +55,8 @@ The complete-source downstream approach used by Java has also been adopted for P
 
 - Upstream update detection and synchronization assistance.
 - Multi-language onboarding examples and a documentation site.
-- Maintain the released Java and Python Security capabilities and complete the Node.js integration
-  of the shared Beacon Security contract, with each implementation owned, validated, and released
-  by its corresponding language repository.
+- Maintain the released Java, Python, and Node.js Security capabilities, with each implementation
+  owned, validated, and released by its corresponding language repository.
 - Validated guidance for service identity, context, Profiling, and security-data correlation.
 
 The roadmap does not assume a unified runtime, lockstep cross-language releases, a remote-control platform, or a new installation and injection system. New work must address a concrete user or maintenance need.
