@@ -107,7 +107,7 @@ references and may change with ongoing development.
 | Published packages | [`beacon-otel==1.2.0`](https://pypi.org/project/beacon-otel/1.2.0/) and [`beacon-profiling==1.2.0`](https://pypi.org/project/beacon-profiling/1.2.0/) |
 | Installation and Security usage | [Beacon Python 1.2.0 usage guide](https://github.com/beacon-observability/beacon-python/blob/v1.2.0/beacon-otel/README.md) |
 | Kubernetes Deployment example | [Beacon Python 1.2.0 Kubernetes example](https://github.com/beacon-observability/beacon-python/blob/v1.2.0/beacon-otel/examples/kubernetes/deployment.yaml) |
-| Release validation | [Beacon Python 1.2.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-python/blob/main/beacon/validation/1.2.0.md) |
+| Release validation | [Beacon Python 1.2.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-python/blob/3a3cb14b7a6bab0a955000f35507cfa770d8f2bb/beacon/validation/1.2.0.md) |
 | Development guide | [Beacon Python development entry](https://github.com/beacon-observability/beacon-python/blob/main/beacon/README.md) |
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-python/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-python/blob/main/beacon/UPSTREAM.md) |
