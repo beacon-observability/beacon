@@ -77,7 +77,7 @@ references and may change with ongoing development.
 | Published packages | [`@beacon-observability/nodejs@1.3.0`](https://www.npmjs.com/package/@beacon-observability/nodejs/v/1.3.0), [`@beacon-observability/profiler-nodejs@1.3.0`](https://www.npmjs.com/package/@beacon-observability/profiler-nodejs/v/1.3.0), and [`@beacon-observability/security-nodejs@1.3.0`](https://www.npmjs.com/package/@beacon-observability/security-nodejs/v/1.3.0) |
 | Installation and Security usage | [Beacon Node.js 1.3.0 usage guide](https://github.com/beacon-observability/beacon-nodejs/blob/v1.3.0/packages/nodejs/README.md) |
 | Kubernetes Deployment example | [Beacon Node.js 1.3.0 Kubernetes example](https://github.com/beacon-observability/beacon-nodejs/blob/v1.3.0/packages/security-nodejs/examples/kubernetes/deployment.yaml) |
-| Release validation | [Beacon Node.js 1.3.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-nodejs/blob/9ec85e60ef2dc1fe0c8cbd4d665ffa3f6f356c58/beacon/validation/1.3.0.md) |
+| Release validation | [Beacon Node.js 1.3.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-nodejs/blob/bc58b9409bb0c6cd4c5f966cdf9a9e6ee64be5a7/beacon/validation/1.3.0.md) |
 | Development guide | [Beacon Node.js development entry](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/README.md) |
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/UPSTREAM.md) |
