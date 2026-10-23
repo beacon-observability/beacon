@@ -1,6 +1,6 @@
-# Language Projects
+# Language and Browser Projects
 
-This page is the authoritative index of language projects. Implementation approaches, feature scopes, and release schedules may differ by language. Support for one Beacon language or its upstream project must not be inferred for another.
+This page is the authoritative index of Beacon language agents and the Rumable browser RUM project. Implementation approaches, feature scopes, and release schedules may differ by language. Support for one Beacon language or its upstream project must not be inferred for another.
 
 Before onboarding a new language, use the [New Language Onboarding and Initial Release Guide](language-onboarding.md) to determine its maintenance model and validation boundaries. Projects that have not been established do not receive placeholder repository or installation links here.
 
@@ -136,6 +136,25 @@ The following development entry points are available on the GitHub `main` branch
 | Extension provenance | [Extension upstream baseline](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/upstream.lock.json) |
 
 After the initial release, this page will link to version-specific installation instructions and the corresponding GitHub Release.
+
+## Rumable browser RUM
+
+Rumable keeps its own name, `rumable` command, TOML configuration, and independent release schedule. The current official release is **v0.1.9**. It injects the bundled Web SDK into HTML responses through Linux/Nginx or Windows/IIS without changing application source code. Browsers report directly to the configured RUM receiver; browser reporting is configured separately from server-side OTLP export.
+
+GitHub Releases provides Linux and Windows archives, installers, manifests, SDK metadata, and SHA256 checksums. The English configuration page generates commands pinned to a specific GitHub Release, and installers verify the selected archive before installation. Platform requirements, recovery procedures, and optional server-side OpenTelemetry integration remain documented in the Rumable repository.
+
+| Entry | URL |
+| --- | --- |
+| Source repository | [beacon-observability/rumable](https://github.com/beacon-observability/rumable) |
+| Current release and downloads | [v0.1.9](https://github.com/beacon-observability/rumable/releases/tag/v0.1.9) |
+| Beacon documentation | [Rumable browser RUM guide](https://beacon-observability.github.io/docs/rumable) |
+| English configuration page | [Rumable v0.1.9 setup](https://beacon-observability.github.io/rumable/0.1.9/setup/index.html) |
+| Installation and recovery | [Rumable v0.1.9 user guide](https://github.com/beacon-observability/rumable/blob/v0.1.9/USER-GUIDE.md) |
+| Platform compatibility | [Rumable v0.1.9 compatibility](https://github.com/beacon-observability/rumable/blob/v0.1.9/docs/compatibility.md) |
+| Optional server tracing | [Rumable v0.1.9 OTel guide](https://github.com/beacon-observability/rumable/blob/v0.1.9/docs/otel.md) |
+| Release maintenance | [GitHub publication and retry guide](https://github.com/beacon-observability/rumable/blob/main/docs/github-release.md) |
+
+The release and version-pinned guides define published scope. The release-maintenance link tracks the mutable `main` branch. Rumable does not imply a browser SDK capability or release in every server-side language agent.
 
 ## Maintaining Support Scope
 
