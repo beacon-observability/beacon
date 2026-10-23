@@ -8,7 +8,7 @@ Each language evolves independently: Java, Node.js, Python, and .NET have offici
 PHP native instrumentation has a component release; the complete PHP distribution remains under
 development and validation; and the Go project has not yet been established. Beacon Security is
 released as an opt-in capability in the existing Java, Python, and Node.js product packages.
-Fastrace is available as an independently maintained Rust tracing library with local DataKit acceptance; it has no separate Beacon release.
+Fastrace has its first official Beacon source release, `v0.1.0`, with fixed-tag SDK installation and local DataKit OTLP/gRPC acceptance.
 Rumable has released browser RUM integration for Linux/Nginx and Windows/IIS as `v0.1.9`.
 Project entry points and current status are maintained in
 [Language and Browser Projects](docs/languages.md).

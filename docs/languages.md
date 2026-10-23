@@ -143,16 +143,19 @@ After the initial release, this page will link to version-specific installation 
 
 [fastrace](https://github.com/beacon-observability/fastrace) is the Rust tracing library in the Beacon family. It is based on [fast/fastrace](https://github.com/fast/fastrace) and maintained as an independent source snapshot with a pinned upstream baseline, without a GitHub fork relationship. Upstream crate identities, APIs, copyright notices, and the Apache-2.0 license are retained. Applications add the SDK and instrument their source code.
 
-The development source has passed a two-process acceptance through a local DataKit OTLP/gRPC receiver, with backend verification of service names, the 128-bit trace ID, span IDs, parent relationships, and final pre-exit span delivery. The language repository's acceptance record defines the exact source, receiver version, protocol, checks, and limitations. This is source-based development acceptance; there is no separate Beacon package or official release.
+The first official Beacon source release is **v0.1.0**, distributed through a fixed Git tag and a verified source archive. It is a Rust SDK that applications integrate and instrument explicitly. Release acceptance covers a two-process trace through local DataKit OTLP/gRPC, with backend verification of service names, the 128-bit trace ID, span IDs, parent relationships, and final pre-exit span delivery. The release notes and versioned guide define exact validation and limitations; this release does not publish crates.io packages or a prebuilt agent executable.
 
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/fastrace](https://github.com/beacon-observability/fastrace) |
-| Documentation | [Fastrace guides](https://github.com/beacon-observability/fastrace/blob/main/docs/README.md) |
+| Current source release | [Fastrace v0.1.0](https://github.com/beacon-observability/fastrace/releases/tag/v0.1.0) |
+| Installation, local DataKit, and rollback | [Fastrace v0.1.0 installation](https://github.com/beacon-observability/fastrace/blob/v0.1.0/docs/installation.md) |
+| Documentation | [Fastrace v0.1.0 guides](https://github.com/beacon-observability/fastrace/blob/v0.1.0/docs/README.md) |
 | Source baseline and synchronization | [Upstream maintenance](https://github.com/beacon-observability/fastrace/blob/main/beacon/UPSTREAM.md) |
-| Acceptance record | [Local DataKit OTLP/gRPC acceptance](https://github.com/beacon-observability/fastrace/blob/5a17472d36282f17d4d88fef959e3b6890452e59/docs/validation.md) |
+| Acceptance procedure and baseline record | [Local DataKit OTLP/gRPC acceptance](https://github.com/beacon-observability/fastrace/blob/v0.1.0/docs/validation.md) |
+| Release maintenance | [Source release process](https://github.com/beacon-observability/fastrace/blob/main/beacon/RELEASING.md) |
 
-The documentation and maintenance links track development on `main` and may change. The acceptance record is pinned to the validated documentation revision. A possible future `beacon-rust` project based on OpenTelemetry Rust is separate and has not been established; no repository or installation link is provided for it.
+Installation and acceptance guides are pinned to the release tag; the release notes record artifact acceptance. Maintenance links track development on `main` and may change. A possible future `beacon-rust` project based on OpenTelemetry Rust is separate and has not been established; no repository or installation link is provided for it.
 
 ## Rumable browser RUM
 
