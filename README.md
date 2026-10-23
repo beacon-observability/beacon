@@ -1,13 +1,14 @@
 # Beacon
 
-Beacon combines OpenTelemetry-based server instrumentation with browser real user monitoring through Rumable. Each component is developed and released independently; refer to its versioned documentation for capabilities and support scope.
+Beacon combines OpenTelemetry-based server instrumentation, the fastrace Rust tracing library, and browser real user monitoring through Rumable. Each component is developed and released independently; refer to its versioned documentation for capabilities and support scope.
 
-This repository is the product and documentation entry point. It does not contain agent implementations.
+This repository is the product and documentation entry point. It does not contain component implementations.
 
 Each language evolves independently: Java, Node.js, Python, and .NET have official releases; the
 PHP native instrumentation has a component release; the complete PHP distribution remains under
 development and validation; and the Go project has not yet been established. Beacon Security is
 released as an opt-in capability in the existing Java, Python, and Node.js product packages.
+Fastrace is available as an independently maintained Rust tracing library with local DataKit acceptance; it has no separate Beacon release.
 Rumable has released browser RUM integration for Linux/Nginx and Windows/IIS as `v0.1.9`.
 Project entry points and current status are maintained in
 [Language and Browser Projects](docs/languages.md).

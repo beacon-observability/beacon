@@ -1,6 +1,6 @@
 # Language and Browser Projects
 
-This page is the authoritative index of Beacon language agents and the Rumable browser RUM project. Implementation approaches, feature scopes, and release schedules may differ by language. Support for one Beacon language or its upstream project must not be inferred for another.
+This page is the authoritative index of Beacon runtime agents, tracing SDKs, and the Rumable browser RUM project. Implementation approaches, feature scopes, and release schedules may differ by language. Support for one Beacon language or its upstream project must not be inferred for another.
 
 Before onboarding a new language, use the [New Language Onboarding and Initial Release Guide](language-onboarding.md) to determine its maintenance model and validation boundaries. Projects that have not been established do not receive placeholder repository or installation links here.
 
@@ -136,6 +136,23 @@ The following development entry points are available on the GitHub `main` branch
 | Extension provenance | [Extension upstream baseline](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/upstream.lock.json) |
 
 After the initial release, this page will link to version-specific installation instructions and the corresponding GitHub Release.
+
+## Rust
+
+### Fastrace
+
+[fastrace](https://github.com/beacon-observability/fastrace) is the Rust tracing library in the Beacon family. It is based on [fast/fastrace](https://github.com/fast/fastrace) and maintained as an independent source snapshot with a pinned upstream baseline, without a GitHub fork relationship. Upstream crate identities, APIs, copyright notices, and the Apache-2.0 license are retained. Applications add the SDK and instrument their source code.
+
+The development source has passed a two-process acceptance through a local DataKit OTLP/gRPC receiver, with backend verification of service names, the 128-bit trace ID, span IDs, parent relationships, and final pre-exit span delivery. The language repository's acceptance record defines the exact source, receiver version, protocol, checks, and limitations. This is source-based development acceptance; there is no separate Beacon package or official release.
+
+| Entry | URL |
+| --- | --- |
+| Source repository | [beacon-observability/fastrace](https://github.com/beacon-observability/fastrace) |
+| Documentation | [Fastrace guides](https://github.com/beacon-observability/fastrace/blob/main/docs/README.md) |
+| Source baseline and synchronization | [Upstream maintenance](https://github.com/beacon-observability/fastrace/blob/main/beacon/UPSTREAM.md) |
+| Acceptance record | [Local DataKit OTLP/gRPC acceptance](https://github.com/beacon-observability/fastrace/blob/5a17472d36282f17d4d88fef959e3b6890452e59/docs/validation.md) |
+
+The documentation and maintenance links track development on `main` and may change. The acceptance record is pinned to the validated documentation revision. A possible future `beacon-rust` project based on OpenTelemetry Rust is separate and has not been established; no repository or installation link is provided for it.
 
 ## Rumable browser RUM
 

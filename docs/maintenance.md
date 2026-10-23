@@ -22,6 +22,7 @@ implementation has completed release acceptance.
 - Java uses a complete-source downstream model, preserving the upstream layout and history while allowing native instrumentation enhancements. See the [Java project entry](languages.md#java) for synchronization, baseline, and release documentation.
 - Node.js uses a standalone downstream copy of the complete OpenTelemetry JavaScript Contrib source and history, with Beacon-specific additions kept isolated. See the [Node.js project entry](languages.md#nodejs) for its baseline, synchronization, and release-preparation documentation.
 - Python uses a standalone downstream copy of the complete OpenTelemetry Python Contrib source, preserving existing Beacon-specific commits and upstream history. See the [Python project entry](languages.md#python) for synchronization, baseline, and release-preparation documentation.
+- Rust uses an independent fastrace source snapshot with a pinned upstream baseline. Reviewed upstream differences are applied with a three-way merge; the repository does not use a GitHub fork relationship. See the [Rust project entry](languages.md#rust) for scope, source provenance, and acceptance evidence.
 - Pin upstream versions and commits, keep Beacon-specific differences controlled, and maintain corresponding regression tests.
 - Track official upstream updates. Evaluate changes, resolve conflicts, and validate before adoption; "always current" never means releasing an untested upstream update directly.
 - Contribute generally useful fixes upstream whenever practical. Remove duplicate downstream implementations after an equivalent upstream solution has been validated.
@@ -30,7 +31,7 @@ Synchronization frequency and response targets depend on actual maintenance capa
 
 ## Independent Releases
 
-Each language defines its own versions and release cadence. Java, Go, Node.js, Python, PHP, and .NET are not required to release together, and a language release does not require a new unified Beacon version.
+Each language defines its own versions and release cadence. Java, Go, Node.js, Python, PHP, Rust, and .NET are not required to release together, and a language release does not require a new unified Beacon version.
 
 Each language repository is responsible for:
 
