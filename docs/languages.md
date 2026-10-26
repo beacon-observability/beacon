@@ -137,6 +137,35 @@ The following development entry points are available on the GitHub `main` branch
 
 After the initial release, this page will link to version-specific installation instructions and the corresponding GitHub Release.
 
+## Ruby
+
+Beacon Ruby is being onboarded from official OpenTelemetry sources. The initial maintenance model
+uses the complete OpenTelemetry Ruby Contrib source and history for instrumentation, with the
+official Ruby Core gems providing the API, SDK, and exporters as dependencies. Upstream sources
+and releases are provenance references; they are not Beacon releases or installation instructions.
+
+| Entry | Upstream URL |
+| --- | --- |
+| Instrumentation source | [open-telemetry/opentelemetry-ruby-contrib](https://github.com/open-telemetry/opentelemetry-ruby-contrib) |
+| Initial instrumentation baseline | [OpenTelemetry Ruby Instrumentation All 0.99.0](https://github.com/open-telemetry/opentelemetry-ruby-contrib/releases/tag/opentelemetry-instrumentation-all/v0.99.0) |
+| API, SDK, and exporter source | [open-telemetry/opentelemetry-ruby](https://github.com/open-telemetry/opentelemetry-ruby) |
+
+The Beacon repository and development guides track `main` and may change. The local acceptance
+record is pinned to the source import commit:
+
+| Entry | Development URL |
+| --- | --- |
+| Source repository | [beacon-observability/beacon-ruby](https://github.com/beacon-observability/beacon-ruby) |
+| Development guide | [Beacon Ruby development entry](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/README.md) |
+| Source baseline and synchronization | [OpenTelemetry Ruby upstream maintenance](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/UPSTREAM.md) |
+| Local acceptance | [Ruby source import acceptance](https://github.com/beacon-observability/beacon-ruby/blob/35e2da93712da54d125cc9e4eae021179ca6f8ed/beacon/validation/README.md) |
+| Release preparation | [Beacon Ruby release prerequisites](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/RELEASING.md) |
+
+No official Beacon Ruby release or installation entry is available. Local acceptance covers the
+shared base, Net::HTTP semantic modes, and a Collector trace path; it does not establish a complete
+Beacon support matrix. Follow the [Ruby roadmap](roadmap.md#later-develop-ruby) for the remaining
+onboarding work.
+
 ## Rust
 
 ### Fastrace

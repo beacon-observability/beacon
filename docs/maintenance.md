@@ -31,7 +31,7 @@ Synchronization frequency and response targets depend on actual maintenance capa
 
 ## Independent Releases
 
-Each language defines its own versions and release cadence. Java, Go, Node.js, Python, PHP, Rust, and .NET are not required to release together, and a language release does not require a new unified Beacon version.
+Each language defines its own versions and release cadence. Java, Go, Node.js, Python, PHP, Rust, .NET, and Ruby are not required to release together, and a language release does not require a new unified Beacon version.
 
 Each language repository is responsible for:
 

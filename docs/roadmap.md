@@ -51,6 +51,21 @@ The complete-source downstream approach used by Java has also been adopted for P
 - Validate the target PHP versions, extension versions, and initial component instrumentations, including an actual ingestion path.
 - Finalize the Composer packages' official versioning, publishing permissions, and upgrade and rollback procedures. Add version-specific user documentation after the initial official release.
 
+## Later: Develop Ruby
+
+- Start from official OpenTelemetry Ruby Contrib source and preserve its history; use official
+  Ruby Core gems for the API, SDK, and exporters. See the [Ruby project entry](languages.md#ruby)
+  for upstream sources and the initial instrumentation baseline.
+- Complete onboarding in an independent language repository, including provenance, build, test,
+  synchronization, release processes, and the intended Beacon-specific enhancement scope, using
+  the [New Language Onboarding and Initial Release Guide](language-onboarding.md).
+- Validate the target Ruby runtimes, instrumentation coverage, and actual ingestion path before
+  publishing an initial release. Add confirmed repository and version-specific installation links
+  to the [Ruby project entry](languages.md#ruby) as they become available.
+
+Ruby is under development; these steps do not imply validated Beacon support, an official release,
+or a committed release date.
+
 ## As Real Needs Emerge
 
 - Upstream update detection and synchronization assistance.
