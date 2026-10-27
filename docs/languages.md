@@ -8,29 +8,34 @@ Before onboarding a new language, use the [New Language Onboarding and Initial R
 
 Beacon Java uses a downstream copy of the complete OpenTelemetry Java Instrumentation source,
 preserves upstream history, and adds Beacon-specific enhancements in the corresponding modules.
-The current official release is `1.1.0`. It publishes one complete Agent JAR together with its
+The current official release is `1.3.2`. It publishes one complete Agent JAR together with its
 SHA-256 checksum, SPDX SBOM, provenance, licenses, notices, and GitHub build-provenance
 attestations.
 
 Beacon Security is embedded in that complete Agent as an opt-in capability and is disabled by
-default. Applications still use one `-javaagent`; this release does not publish a standalone
-Security JAR or a Beacon-owned container image. Refer to the release and pinned usage guide for
-the exact configuration, capabilities, deployment example, and limitations.
+default. Applications still use one `-javaagent`; there is no standalone Security JAR.
+The same official `1.3.2` Agent JAR is also distributed through the public
+`ghcr.io/beacon-observability/beacon-java:1.3.2` container image for Linux amd64 and arm64.
+The image supplies the Agent for an initContainer or an application-image build; it does not
+include a JVM or an application. Refer to the release and pinned guides for exact scope and use.
 
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-java](https://github.com/beacon-observability/beacon-java) |
-| Current release | [Beacon Java 1.1.0](https://github.com/beacon-observability/beacon-java/releases/tag/v1.1.0) |
-| Installation and Security usage | [Beacon Java 1.1.0 usage guide](https://github.com/beacon-observability/beacon-java/blob/cc55c77be6247d4f0e3835639002415b683a220b/extensions/security/README.md) |
-| Kubernetes initContainer example | [Beacon Java 1.1.0 Kubernetes example](https://github.com/beacon-observability/beacon-java/blob/cc55c77be6247d4f0e3835639002415b683a220b/extensions/security/examples/kubernetes/init-container.yaml) |
-| Source provenance | [Beacon Java 1.1.0 upstream baseline](https://github.com/beacon-observability/beacon-java/blob/v1.1.0/beacon/upstream.lock.json) |
+| Current release | [Beacon Java 1.3.2](https://github.com/beacon-observability/beacon-java/releases/tag/v1.3.2) |
+| Container image | [Beacon Java 1.3.2 on GHCR](https://github.com/orgs/beacon-observability/packages/container/package/beacon-java) |
+| Container installation | [Beacon Java 1.3.2 image guide](https://github.com/beacon-observability/beacon-java/blob/c5cbb47749b249108718492adf9156b4dc66594d/beacon/docker/javaagent/README.md) |
+| Kubernetes initContainer example | [Beacon Java 1.3.2 Kubernetes example](https://github.com/beacon-observability/beacon-java/blob/c5cbb47749b249108718492adf9156b4dc66594d/extensions/security/examples/kubernetes/init-container.yaml) |
+| Earlier Security configuration reference | [Beacon Java 1.1.0 usage guide](https://github.com/beacon-observability/beacon-java/blob/cc55c77be6247d4f0e3835639002415b683a220b/extensions/security/README.md) |
+| Source provenance | [Beacon Java 1.3.2 upstream baseline](https://github.com/beacon-observability/beacon-java/blob/v1.3.2/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-java/blob/main/beacon/UPSTREAM.md) |
 | Release maintenance | [Beacon Java release process](https://github.com/beacon-observability/beacon-java/blob/main/beacon/RELEASING.md) |
 
-The usage guide is pinned to a documentation-only correction merged after `v1.1.0`; it does not
-change or replace the immutable release artifacts. The language repository's release record remains
-authoritative for exact scope and evidence. Links to `main` are maintainer references and may
-change with ongoing development.
+The container guide and Kubernetes example are pinned to the distribution change merged after
+`v1.3.2`; the image preserves the original release JAR. The earlier Security reference is explicitly
+versioned `1.1.0` and does not define `1.3.2` support. The language repository's release record remains
+authoritative for exact scope and evidence. Links to `main` are maintainer references and may change
+with ongoing development.
 
 ## .NET
 
