@@ -56,7 +56,7 @@ Beacon Go is planned for `beacon-observability/beacon-go`. The project has not y
 ## Node.js
 
 Beacon Node.js maintains a standalone downstream copy of the complete official OpenTelemetry
-JavaScript Contrib source and history. The current official release is `1.3.0`; it publishes the
+JavaScript Contrib source and history. The current official release is `1.3.1`; it publishes the
 `@beacon-observability/nodejs` zero-code package and the matching
 `@beacon-observability/profiler-nodejs` and `@beacon-observability/security-nodejs` packages. The
 general zero-code workflow is validated on Node.js 18.19, 20, 22, and 24. Beacon Security requires
@@ -64,13 +64,19 @@ Node.js 22.22.3+ or 24.11.1+.
 
 Beacon Security is included in the complete zero-code package as an opt-in capability. It pins the
 shared v1 contract, exports findings and runtime SBOM through OpenTelemetry Logs, and keeps local
-diagnostic output off by default. The Kubernetes example bakes the complete package into the
-application image without a separate Security image, sidecar, or init container. Public-artifact
-acceptance verified installation from npm, zero-code trace and profile export, the disabled
-lifecycle, request-specific occurrence IDs and trace context, evidence sampling, runtime-SBOM export,
-and the local-output default. Version 1.3.0 adds conservative attack-evidence analysis with explicit
-uncertainty; actual OTLP delivery verifies ordinary, suspected, and ordinary SQL evidence for one
-finding.
+diagnostic output off by default. The npm Kubernetes example bakes the complete package into the
+application image without requiring a separate Security image, sidecar, or init container.
+Public-artifact acceptance verified installation from npm, zero-code trace and profile export,
+disabled native loading and failure isolation, ESM preloading, resource identity, signal handling,
+Security Log delivery before SDK shutdown, and workspace SBOM behavior. Version 1.3.1 improves
+preload and shutdown lifecycles, native profiling bounds, and workspace SBOM inventory; the versioned
+acceptance record distinguishes these checks from external backend qualification.
+
+The public `ghcr.io/beacon-observability/beacon-nodejs:1.3.1` image supplies the same published
+packages, locked production dependencies, and a pinned Node.js 24 / Debian bookworm glibc runtime
+for Linux amd64 and arm64. It can supply the bundle through a multi-stage build or an initContainer
+to a compatible application runtime. Its native-library compatibility boundary is narrower than
+the npm package runtime matrix; see the pinned container guide.
 
 The release link is authoritative for published scope. Entries that track `main` remain maintainer
 references and may change with ongoing development.
@@ -78,11 +84,14 @@ references and may change with ongoing development.
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-nodejs](https://github.com/beacon-observability/beacon-nodejs) |
-| Current release | [Beacon Node.js 1.3.0](https://github.com/beacon-observability/beacon-nodejs/releases/tag/v1.3.0) |
-| Published packages | [`@beacon-observability/nodejs@1.3.0`](https://www.npmjs.com/package/@beacon-observability/nodejs/v/1.3.0), [`@beacon-observability/profiler-nodejs@1.3.0`](https://www.npmjs.com/package/@beacon-observability/profiler-nodejs/v/1.3.0), and [`@beacon-observability/security-nodejs@1.3.0`](https://www.npmjs.com/package/@beacon-observability/security-nodejs/v/1.3.0) |
-| Installation and Security usage | [Beacon Node.js 1.3.0 usage guide](https://github.com/beacon-observability/beacon-nodejs/blob/v1.3.0/packages/nodejs/README.md) |
-| Kubernetes Deployment example | [Beacon Node.js 1.3.0 Kubernetes example](https://github.com/beacon-observability/beacon-nodejs/blob/v1.3.0/packages/security-nodejs/examples/kubernetes/deployment.yaml) |
-| Release validation | [Beacon Node.js 1.3.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-nodejs/blob/bc58b9409bb0c6cd4c5f966cdf9a9e6ee64be5a7/beacon/validation/1.3.0.md) |
+| Current release | [Beacon Node.js 1.3.1](https://github.com/beacon-observability/beacon-nodejs/releases/tag/v1.3.1) |
+| Published packages | [`@beacon-observability/nodejs@1.3.1`](https://www.npmjs.com/package/@beacon-observability/nodejs/v/1.3.1), [`@beacon-observability/profiler-nodejs@1.3.1`](https://www.npmjs.com/package/@beacon-observability/profiler-nodejs/v/1.3.1), and [`@beacon-observability/security-nodejs@1.3.1`](https://www.npmjs.com/package/@beacon-observability/security-nodejs/v/1.3.1) |
+| Installation and Security usage | [Beacon Node.js 1.3.1 usage guide](https://github.com/beacon-observability/beacon-nodejs/blob/v1.3.1/packages/nodejs/README.md) |
+| Container image | [Beacon Node.js 1.3.1 on GHCR](https://github.com/orgs/beacon-observability/packages/container/package/beacon-nodejs) |
+| Container installation | [Beacon Node.js 1.3.1 image guide](https://github.com/beacon-observability/beacon-nodejs/blob/b19cd02a9f963d8c757b7076a9aa468ee0667062/beacon/docker/nodejs/README.md) |
+| Container Kubernetes example | [Beacon Node.js 1.3.1 initContainer](https://github.com/beacon-observability/beacon-nodejs/blob/b19cd02a9f963d8c757b7076a9aa468ee0667062/beacon/docker/nodejs/init-container.yaml) |
+| Kubernetes Deployment example | [Beacon Node.js 1.3.1 Kubernetes example](https://github.com/beacon-observability/beacon-nodejs/blob/v1.3.1/packages/security-nodejs/examples/kubernetes/deployment.yaml) |
+| Release validation | [Beacon Node.js 1.3.1 public-artifact acceptance](https://github.com/beacon-observability/beacon-nodejs/blob/fb61a59b836adfc43f68c4ed32cba86ede4ed02f/beacon/validation/1.3.1.md) |
 | Development guide | [Beacon Node.js development entry](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/README.md) |
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/UPSTREAM.md) |
