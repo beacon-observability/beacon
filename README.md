@@ -6,8 +6,8 @@ This repository is the product and documentation entry point. It does not contai
 
 Each language evolves independently: Java, Node.js, Python, and .NET have official releases; the
 PHP native instrumentation has a component release; the complete PHP distribution remains under
-development and validation; Ruby is being onboarded from official OpenTelemetry sources; and the
-Go project has not yet been established. Beacon Security is released as an opt-in capability in
+development and validation; Ruby has an initial source release, `v1.0.0`; and the Go project has
+not yet been established. Beacon Security is released as an opt-in capability in
 the existing Java, Python, and Node.js product packages.
 Fastrace has its first official Beacon source release, `v0.1.0`, with fixed-tag SDK installation and local DataKit OTLP/gRPC acceptance.
 Rumable has released browser RUM integration for Linux/Nginx and Windows/IIS as `v0.1.9`.

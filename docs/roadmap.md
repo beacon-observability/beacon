@@ -51,20 +51,20 @@ The complete-source downstream approach used by Java has also been adopted for P
 - Validate the target PHP versions, extension versions, and initial component instrumentations, including an actual ingestion path.
 - Finalize the Composer packages' official versioning, publishing permissions, and upgrade and rollback procedures. Add version-specific user documentation after the initial official release.
 
-## Later: Develop Ruby
+## Near Term: Extend the Ruby Source Release
 
-- Start from official OpenTelemetry Ruby Contrib source and preserve its history; use official
-  Ruby Core gems for the API, SDK, and exporters. See the [Ruby project entry](languages.md#ruby)
-  for upstream sources and the initial instrumentation baseline.
-- Complete onboarding in an independent language repository, including provenance, build, test,
-  synchronization, release processes, and the intended Beacon-specific enhancement scope, using
-  the [New Language Onboarding and Initial Release Guide](language-onboarding.md).
-- Validate the target Ruby runtimes, instrumentation coverage, and actual ingestion path before
-  publishing an initial release. Add confirmed repository and version-specific installation links
-  to the [Ruby project entry](languages.md#ruby) as they become available.
+- The initial Beacon Ruby source release preserves official OpenTelemetry Ruby Contrib source
+  and history, with versioned installation, rollback, and acceptance documentation. See the
+  [Ruby project entry](languages.md#ruby) for the current release and its limited validation scope.
+- Expand the validated Ruby runtime and component matrix, including target framework and client
+  integrations, before adding corresponding support claims.
+- Define the scope, package identity, publishing permissions, application configuration, and
+  artifact acceptance for any future installable Beacon gem. The source release retains upstream
+  gem identities and does not complete that product distribution work.
+- Maintain the pinned upstream baseline and synchronization process in the Ruby repository under
+  the [shared maintenance principles](maintenance.md).
 
-Ruby is under development; these steps do not imply validated Beacon support, an official release,
-or a committed release date.
+Future capabilities and release dates remain subject to implementation and validation.
 
 ## As Real Needs Emerge
 

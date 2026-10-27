@@ -139,32 +139,32 @@ After the initial release, this page will link to version-specific installation 
 
 ## Ruby
 
-Beacon Ruby is being onboarded from official OpenTelemetry sources. The initial maintenance model
-uses the complete OpenTelemetry Ruby Contrib source and history for instrumentation, with the
-official Ruby Core gems providing the API, SDK, and exporters as dependencies. Upstream sources
-and releases are provenance references; they are not Beacon releases or installation instructions.
+Beacon Ruby maintains an independent downstream of the complete official OpenTelemetry Ruby
+Contrib source and history, with the official Ruby Core API, SDK, and exporters used as
+dependencies. The first official Beacon Ruby source release is **v1.0.0**, distributed through
+a fixed tag and a verified source archive with provenance and SHA-256 checksums.
 
-| Entry | Upstream URL |
-| --- | --- |
-| Instrumentation source | [open-telemetry/opentelemetry-ruby-contrib](https://github.com/open-telemetry/opentelemetry-ruby-contrib) |
-| Initial instrumentation baseline | [OpenTelemetry Ruby Instrumentation All 0.99.0](https://github.com/open-telemetry/opentelemetry-ruby-contrib/releases/tag/opentelemetry-instrumentation-all/v0.99.0) |
-| API, SDK, and exporter source | [open-telemetry/opentelemetry-ruby](https://github.com/open-telemetry/opentelemetry-ruby) |
+Release acceptance covers the shared instrumentation base, all three Net::HTTP semantic modes,
+and a local Collector OTLP HTTP/protobuf trace path with service identity and parent/client span
+correlation. The source installation guide includes verification and rollback instructions.
+This release retains upstream gem identities and does not publish an installable Beacon gem,
+a prebuilt agent, or a complete runtime support matrix. Other frameworks, runtimes, DataKit,
+Metrics, Logs, Profiling, and Security remain outside its validated scope.
 
-The Beacon repository and development guides track `main` and may change. The local acceptance
-record is pinned to the source import commit:
-
-| Entry | Development URL |
+| Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-ruby](https://github.com/beacon-observability/beacon-ruby) |
+| Current source release | [Beacon Ruby v1.0.0](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.0.0) |
+| Source installation and rollback | [Beacon Ruby v1.0.0 source guide](https://github.com/beacon-observability/beacon-ruby/blob/v1.0.0/beacon/INSTALLATION.md) |
+| Release notes and scope | [Beacon Ruby v1.0.0 notes](https://github.com/beacon-observability/beacon-ruby/blob/v1.0.0/beacon/releases/1.0.0.md) |
+| Component acceptance | [Versioned source acceptance](https://github.com/beacon-observability/beacon-ruby/blob/v1.0.0/beacon/validation/README.md) |
 | Development guide | [Beacon Ruby development entry](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/README.md) |
 | Source baseline and synchronization | [OpenTelemetry Ruby upstream maintenance](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/UPSTREAM.md) |
-| Local acceptance | [Ruby source import acceptance](https://github.com/beacon-observability/beacon-ruby/blob/35e2da93712da54d125cc9e4eae021179ca6f8ed/beacon/validation/README.md) |
-| Release preparation | [Beacon Ruby release prerequisites](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/RELEASING.md) |
+| Release maintenance | [Beacon Ruby source release process](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/RELEASING.md) |
 
-No official Beacon Ruby release or installation entry is available. Local acceptance covers the
-shared base, Net::HTTP semantic modes, and a Collector trace path; it does not establish a complete
-Beacon support matrix. Follow the [Ruby roadmap](roadmap.md#later-develop-ruby) for the remaining
-onboarding work.
+The release and version-pinned guides define the published scope. Links to `main` are mutable
+maintainer references. See the [Ruby roadmap](roadmap.md#near-term-extend-the-ruby-source-release)
+for future work.
 
 ## Rust
 
