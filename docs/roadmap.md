@@ -58,9 +58,10 @@ The complete-source downstream approach used by Java has also been adopted for P
   [Ruby project entry](languages.md#ruby) for the current release and its limited validation scope.
 - Expand the validated Ruby runtime and component matrix, including target framework and client
   integrations, before adding corresponding support claims.
-- Define the scope, package identity, publishing permissions, application configuration, and
-  artifact acceptance for any future installable Beacon gem. The source release retains upstream
-  gem identities and does not complete that product distribution work.
+- Beacon Ruby v1.1.0 adds an opt-in Security gem distributed through GitHub, with explicit
+  Rack/SDK setup, bounded approximate observations, periodic runtime inventory and artifact
+  acceptance. Continue expanding its modeled coverage and validated matrix. Any RubyGems
+  publication still requires confirmed package ownership and publishing permissions.
 - Maintain the pinned upstream baseline and synchronization process in the Ruby repository under
   the [shared maintenance principles](maintenance.md).
 
