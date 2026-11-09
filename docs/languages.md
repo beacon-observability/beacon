@@ -52,21 +52,33 @@ Beacon .NET maintains a standalone downstream copy of the complete OpenTelemetry
 ## C++
 
 Beacon C++ maintains an independent downstream of the complete official OpenTelemetry C++
-API, SDK, and exporters, preserving upstream source history and license notices. Applications
-explicitly integrate the SDK and instrument their source code. The project is under development;
-there is no official Beacon C++ release, prebuilt agent, or validated platform support matrix.
-Automatic instrumentation, Profiling, and Beacon Security are outside the initial scope.
+API, SDK, and exporters, preserving upstream source history and license notices. The first
+Beacon source release is **v0.1.0**, distributed as a fixed tag and verified source archive
+with pinned protocol sources, SHA-256 checksums, and provenance. Applications explicitly
+initialize the SDK and instrument their source code; upstream CMake identities and namespaces
+remain unchanged.
 
-The following links track development on `main` and may change. They are not official release
-installation instructions.
+Release acceptance covers Linux x86_64, Debian 13, GCC 14.2.0, C++17 standard-library mode,
+ABI v1, static SDK installation and consumption, and OTLP/HTTP Protobuf traces to Collector
+Contrib 0.135.0. The receiver verifier checks service identity, exact trace/span IDs, parent
+relationships, and final delivery during shutdown. This does not establish DataKit or downstream
+backend compatibility. Metrics, Logs, other platforms and protocols, Profiling, Beacon Security,
+and automatic instrumentation remain outside first-release acceptance. No prebuilt agent,
+binary package, or package-index distribution is published.
 
-| Entry | Development URL |
+| Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-cpp](https://github.com/beacon-observability/beacon-cpp) |
+| Current release | [Beacon C++ v0.1.0](https://github.com/beacon-observability/beacon-cpp/releases/tag/v0.1.0) |
+| Installation and rollback | [Versioned source installation guide](https://github.com/beacon-observability/beacon-cpp/blob/v0.1.0/beacon/INSTALL.md) |
+| Trace integration and verification | [Versioned acceptance guide](https://github.com/beacon-observability/beacon-cpp/blob/v0.1.0/beacon/acceptance/README.md) |
+| Validation scope | [Versioned validation record](https://github.com/beacon-observability/beacon-cpp/blob/v0.1.0/beacon/VALIDATION.md) |
 | Development guide | [Beacon C++ development entry](https://github.com/beacon-observability/beacon-cpp/blob/main/beacon/README.md) |
 | Source provenance and upstream maintenance | [Baseline and synchronization process](https://github.com/beacon-observability/beacon-cpp/blob/main/beacon/UPSTREAM.md) |
-| Initial validation | [Development validation record](https://github.com/beacon-observability/beacon-cpp/blob/main/beacon/VALIDATION.md) |
-| Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-cpp/blob/main/beacon/RELEASING.md) |
+| Release maintenance | [Release process](https://github.com/beacon-observability/beacon-cpp/blob/main/beacon/RELEASING.md) |
+
+Installation and acceptance links are pinned to the release tag. Links to `main` are mutable
+maintainer references; the release notes and attached manifest define exact artifact acceptance.
 
 ## Go
 
