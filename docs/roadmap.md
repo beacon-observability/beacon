@@ -27,6 +27,19 @@ and maintainer documentation.
 - Continue expanding the actually validated upstream matrix and document version-specific Security
   support and rollback boundaries in the language repository.
 
+## Near Term: Develop the C++ SDK
+
+- An independent complete-source downstream of the official OpenTelemetry C++ API/SDK has
+  been established, with preserved history and language-specific development, synchronization,
+  and release-preparation documentation. See the [C++ project entry](languages.md#c).
+- Expand validation beyond the initial Linux C++17 SDK build and installed-package smoke check.
+  Define the target operating systems, architectures, compilers, ABI and dependency compatibility,
+  and artifact formats in the language repository.
+- Complete regression tests, an actual telemetry ingestion path, and clean artifact acceptance
+  before an independent Beacon release or corresponding support claims.
+
+C++ capabilities and release timing remain subject to implementation and validation.
+
 ## Later: Develop Go
 
 - Inventory existing implementations and select the upstream project, source or dependency maintenance model, and enhancement scope.

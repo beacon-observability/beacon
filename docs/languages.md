@@ -49,6 +49,25 @@ Beacon .NET maintains a standalone downstream copy of the complete OpenTelemetry
 | Upstream maintenance | [Synchronization process](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/UPSTREAM.md) |
 | Current release | [Beacon .NET 0.1.4](https://github.com/beacon-observability/beacon-dotnet/releases/tag/beacon-v0.1.4) |
 
+## C++
+
+Beacon C++ maintains an independent downstream of the complete official OpenTelemetry C++
+API, SDK, and exporters, preserving upstream source history and license notices. Applications
+explicitly integrate the SDK and instrument their source code. The project is under development;
+there is no official Beacon C++ release, prebuilt agent, or validated platform support matrix.
+Automatic instrumentation, Profiling, and Beacon Security are outside the initial scope.
+
+The following links track development on `main` and may change. They are not official release
+installation instructions.
+
+| Entry | Development URL |
+| --- | --- |
+| Source repository | [beacon-observability/beacon-cpp](https://github.com/beacon-observability/beacon-cpp) |
+| Development guide | [Beacon C++ development entry](https://github.com/beacon-observability/beacon-cpp/blob/main/beacon/README.md) |
+| Source provenance and upstream maintenance | [Baseline and synchronization process](https://github.com/beacon-observability/beacon-cpp/blob/main/beacon/UPSTREAM.md) |
+| Initial validation | [Development validation record](https://github.com/beacon-observability/beacon-cpp/blob/main/beacon/VALIDATION.md) |
+| Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-cpp/blob/main/beacon/RELEASING.md) |
+
 ## Go
 
 Beacon Go is planned for `beacon-observability/beacon-go`. The project has not yet been established. Existing implementations must first be inventoried and a maintenance model selected, so no repository or installation link is provided.
