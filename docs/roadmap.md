@@ -27,6 +27,19 @@ and maintainer documentation.
 - Continue expanding the actually validated upstream matrix and document version-specific Security
   support and rollback boundaries in the language repository.
 
+## Near Term: Extend the C++ Source Release
+
+- Beacon C++ `v0.1.0` publishes a verified source SDK archive with a pinned protocol submodule,
+  checksums, provenance, and versioned installation and rollback guidance. See the
+  [C++ project entry](languages.md#c) for the release and limited acceptance scope.
+- Expand validation beyond Linux x86_64, Debian 13, C++17, ABI v1, and Collector OTLP/HTTP
+  traces before adding corresponding compiler, platform, signal, or receiver support claims.
+- Maintain the selected upstream regression tests and source-artifact acceptance. Evaluate
+  prebuilt binary or package-index delivery only when its ABI, dependency, and maintenance
+  requirements are defined and validated.
+
+C++ capabilities and release timing remain subject to implementation and validation.
+
 ## Later: Develop Go
 
 - Inventory existing implementations and select the upstream project, source or dependency maintenance model, and enhancement scope.
