@@ -149,23 +149,26 @@ After the initial release, this page will link to version-specific installation 
 
 Beacon Ruby maintains an independent downstream of the complete official OpenTelemetry Ruby
 Contrib source and history, with the official Ruby Core API, SDK, and exporters used as
-dependencies. The first official Beacon Ruby source release is **v1.0.0**, distributed through
-a fixed tag and a verified source archive with provenance and SHA-256 checksums.
+dependencies. The current source release is **v1.2.0**, distributed through a fixed tag,
+a verified source archive, provenance and SHA-256 checksums. It also distributes the
+independently versioned Security 0.1.0 and experimental profiling 0.1.0 gems on GitHub,
+not RubyGems.
 
-Release acceptance covers the shared instrumentation base, all three Net::HTTP semantic modes,
-and a local Collector OTLP HTTP/protobuf trace path with service identity and parent/client span
-correlation. The source installation guide includes verification and rollback instructions.
-This release retains upstream gem identities and does not publish an installable Beacon gem,
-a prebuilt agent, or a complete runtime support matrix. Other frameworks, runtimes, DataKit,
-Metrics, Logs, Profiling, and Security remain outside its validated scope.
+The source trace path covers the shared instrumentation base, Net::HTTP semantic modes
+and local Collector OTLP HTTP/protobuf trace delivery. Opt-in Security findings and runtime
+inventories use the host Logs SDK. Experimental profiling adds CPU/wall time, allocation
+counts, sampled live heap objects/bytes and GVL waits, with local DataKit pprof upload.
+Profiling compile/test/build CI passes Linux CRuby 3.3, 3.4 and 4.0; local receiver
+acceptance uses 3.3.12. Source availability is not a complete runtime or production
+overhead guarantee. See the versioned guides for explicit setup, limits and rollback.
 
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-ruby](https://github.com/beacon-observability/beacon-ruby) |
-| Current source release | [Beacon Ruby v1.0.0](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.0.0) |
-| Source installation and rollback | [Beacon Ruby v1.0.0 source guide](https://github.com/beacon-observability/beacon-ruby/blob/v1.0.0/beacon/INSTALLATION.md) |
-| Release notes and scope | [Beacon Ruby v1.0.0 notes](https://github.com/beacon-observability/beacon-ruby/blob/v1.0.0/beacon/releases/1.0.0.md) |
-| Component acceptance | [Versioned source acceptance](https://github.com/beacon-observability/beacon-ruby/blob/v1.0.0/beacon/validation/README.md) |
+| Current source release | [Beacon Ruby v1.2.0](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.2.0) |
+| Source installation and rollback | [Beacon Ruby v1.2.0 source guide](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.0/beacon/INSTALLATION.md) |
+| Release notes and scope | [Beacon Ruby v1.2.0 notes](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.0/beacon/releases/1.2.0.md) |
+| Component acceptance | [Versioned source acceptance](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.0/beacon/validation/profiling-1.2.0.md) |
 | Development guide | [Beacon Ruby development entry](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/README.md) |
 | Source baseline and synchronization | [OpenTelemetry Ruby upstream maintenance](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/UPSTREAM.md) |
 | Release maintenance | [Beacon Ruby source release process](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/RELEASING.md) |
