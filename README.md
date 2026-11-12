@@ -11,12 +11,15 @@ API/SDK source release, `v0.1.0`; and the Go project has not yet been establishe
 the existing Java, Python, and Node.js product packages.
 Fastrace has its first official Beacon source release, `v0.1.0`, with fixed-tag SDK installation and local DataKit OTLP/gRPC acceptance.
 Rumable has released browser RUM integration for Linux/Nginx and Windows/IIS as `v0.1.9`.
+Beacon OBI has its first standalone Linux amd64 release, `0.1.0`, with HTTP/1 server
+trace and metric acceptance through local OTLP HTTP/protobuf.
 Project entry points and current status are maintained in
-[Language and Browser Projects](docs/languages.md).
+[Language, eBPF, and Browser Projects](docs/languages.md).
 
 ## Documentation
 
-- [Language and Browser Projects](docs/languages.md): component repositories, development documentation, and release status.
+- [Language, eBPF, and Browser Projects](docs/languages.md): component repositories, development documentation, and release status.
+- [OBI eBPF instrumentation](docs/languages.md#obi-ebpf-instrumentation): development repository, upstream baseline, and current status.
 - [Rumable browser RUM](docs/languages.md#rumable-browser-rum): browser monitoring, GitHub downloads, and the English configuration page.
 - [Beacon Security Specification](https://github.com/beacon-observability/beacon-security-spec): the shared, language-neutral development contract for Security events, identity, configuration, fingerprints, and runtime SBOM data. It is not an implementation or release commitment.
 - [Maintenance Principles](docs/maintenance.md): repository boundaries, upstream synchronization, and release requirements.

@@ -48,6 +48,22 @@ C++ capabilities and release timing remain subject to implementation and validat
 
 The complete-source downstream approach used by Java has also been adopted for Python and PHP Contrib, but Go does not need to reuse the same branch layout, packaging, or feature list. Languages may progress independently according to available resources and maturity, and each completes its own validation and release.
 
+## Later: Validate OBI eBPF Instrumentation
+
+- [Beacon OBI](languages.md#obi-ebpf-instrumentation) `0.1.0` provides a standalone Linux amd64
+  release based on official OBI `v1.0.0`, with HTTP/1 server trace and metric acceptance through
+  local OTLP HTTP/protobuf. The project entry defines its limited environment and runtime scope.
+- Exercise the documented upstream synchronization process and expand validation before adding
+  further platform, runtime, protocol, or deployment support.
+- Validate target Linux kernels, architectures, required privileges, application and protocol
+  coverage, and coexistence with existing language agents, including duplicate telemetry.
+- Verify telemetry delivery and correlation through the intended receiver, including DataKit,
+  before claiming compatibility. Publish versioned installation, limitations, and rollback
+  guidance only after artifact acceptance and an official Beacon release.
+
+OBI validation will expand independently. Upstream releases do not establish additional Beacon support, and
+this work is separate from the planned Go language project.
+
 ## Near Term: Maintain and Expand the Node.js Release
 
 - Beacon Node.js `1.2.0` publishes the complete zero-code product package and matching profiler and

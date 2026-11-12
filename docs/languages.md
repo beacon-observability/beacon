@@ -1,6 +1,6 @@
-# Language and Browser Projects
+# Language, eBPF, and Browser Projects
 
-This page is the authoritative index of Beacon runtime agents, tracing SDKs, and the Rumable browser RUM project. Implementation approaches, feature scopes, and release schedules may differ by language. Support for one Beacon language or its upstream project must not be inferred for another.
+This page is the authoritative index of Beacon runtime agents, tracing SDKs, the OBI eBPF instrumentation project, and the Rumable browser RUM project. Implementation approaches, feature scopes, and release schedules may differ by component. Support for one Beacon component or its upstream project must not be inferred for another.
 
 Before onboarding a new language, use the [New Language Onboarding and Initial Release Guide](language-onboarding.md) to determine its maintenance model and validation boundaries. Projects that have not been established do not receive placeholder repository or installation links here.
 
@@ -227,6 +227,37 @@ The first official Beacon source release is **v0.1.0**, distributed through a fi
 | Release maintenance | [Source release process](https://github.com/beacon-observability/fastrace/blob/main/beacon/RELEASING.md) |
 
 Installation and acceptance guides are pinned to the release tag; the release notes record artifact acceptance. Maintenance links track development on `main` and may change. A possible future `beacon-rust` project based on OpenTelemetry Rust is separate and has not been established; no repository or installation link is provided for it.
+
+## OBI eBPF instrumentation
+
+OpenTelemetry eBPF Instrumentation (OBI) provides eBPF-based, zero-code instrumentation
+for user-space applications. It is a separate instrumentation approach from a language SDK
+or runtime agent; adding OBI here does not establish a Beacon Go agent.
+
+[Beacon OBI](https://github.com/beacon-observability/beacon-obi) maintains an independent
+complete-source downstream of official OpenTelemetry eBPF Instrumentation `v1.0.0`, preserving
+upstream history and licensing without a GitHub fork relationship. The first Beacon release,
+**0.1.0**, provides a standalone Linux amd64 executable, checksums, a CycloneDX component
+inventory, and local build provenance. The upstream baseline and Beacon version are independent.
+
+Acceptance covers HTTP/1 server spans, service identity, trace/span identifiers, request-duration
+metrics, and clean shutdown through a local OTLP HTTP/protobuf receiver on Ubuntu 24.04,
+kernel 6.11, and CPython 3.14.3. It does not establish other platform/runtime matrices, DataKit
+or production-backend compatibility, Kubernetes deployment, Profiling, or Security support.
+No Beacon container image or Collector receiver module is released.
+
+| Entry | URL |
+| --- | --- |
+| Source repository | [beacon-observability/beacon-obi](https://github.com/beacon-observability/beacon-obi) |
+| Current release and acceptance | [Beacon OBI 0.1.0](https://github.com/beacon-observability/beacon-obi/releases/tag/v0.1.0) |
+| Installation and rollback | [Beacon OBI 0.1.0 guide](https://github.com/beacon-observability/beacon-obi/blob/v0.1.0/beacon/INSTALLATION.md) |
+| Source baseline | [OBI 0.1.0 upstream record](https://github.com/beacon-observability/beacon-obi/blob/v0.1.0/beacon/UPSTREAM.md) |
+| Development guide | [Beacon OBI development entry](https://github.com/beacon-observability/beacon-obi/blob/main/beacon/README.md) |
+| Release maintenance | [Beacon OBI release process](https://github.com/beacon-observability/beacon-obi/blob/main/beacon/RELEASING.md) |
+
+The release and versioned guide define published scope. Development and maintenance links
+track mutable `main` branches. See the [OBI roadmap](roadmap.md#later-validate-obi-ebpf-instrumentation)
+for remaining validation work. OBI is separate from the planned Go language agent.
 
 ## Rumable browser RUM
 
