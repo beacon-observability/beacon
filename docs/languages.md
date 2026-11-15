@@ -131,31 +131,33 @@ references and may change with ongoing development.
 ## Python
 
 Beacon Python maintains a standalone downstream copy of the complete OpenTelemetry Python Contrib
-source and is not a GitHub fork. The current official release is `1.2.6`, publishing matching
+source and is not a GitHub fork. The current official release is `1.2.7`, publishing matching
 `beacon-otel` and optional `beacon-profiling` distributions. The versioned release notes and source
 provenance records in the language repository define its Contrib `v0.66b2` / Core `v1.45.2` baseline and published scope.
 The former `gtrace` distribution is not a Beacon release.
 
 Beacon Security remains embedded in `beacon-otel`, opt-in and disabled by default, with local output
-off. Release 1.2.6 uses Security event schema v2 and fingerprint v1; consumers must migrate to the
+off. Release 1.2.7 uses Security event schema v2 and fingerprint v1; consumers must migrate to the
 compact finding and successful inventory formats. Its runtime supports standard-GIL CPython
-3.11–3.14. The 1.2.6 release workflow built and tested both distributions before publication. Public-index
-installation checks verified the command version, automatic HTTP client traces, the disabled
-Security runtime, and gzip pprof file output. These are local checks, not new production DataKit
-qualification. Profiling now accepts only `otlp` and `file`; follow the release notes to migrate
-legacy exporter and multipart upload settings.
+3.11–3.14. The 1.2.7 release workflow built and tested both distributions before publication. Public-index
+installation checks verified the command version, automatic HTTP client traces, and multipart
+pprof delivery through local DataKit. Profiling selects the restored HTTP uploader with
+`OTEL_PROFILING_EXPORTER=http` and `OTEL_PROFILING_ENDPOINT=http://127.0.0.1:9529/profiling/v1/input`.
+The `file` option remains available; `otlp` is reserved for future protocol support.
+Follow the versioned release notes when migrating the 1.2.6 configuration. These synthetic
+checks do not establish production overhead or a broader runtime qualification.
 
 | Item | Entry point |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-python](https://github.com/beacon-observability/beacon-python) |
-| Current release | [Beacon Python 1.2.6](https://github.com/beacon-observability/beacon-python/releases/tag/v1.2.6) |
-| Published packages | [`beacon-otel==1.2.6`](https://pypi.org/project/beacon-otel/1.2.6/) and [`beacon-profiling==1.2.6`](https://pypi.org/project/beacon-profiling/1.2.6/) |
-| Installation and Security usage | [Beacon Python 1.2.6 usage guide](https://github.com/beacon-observability/beacon-python/blob/v1.2.6/beacon-otel/README.md) |
-| Kubernetes Deployment example | [Beacon Python 1.2.6 Kubernetes example](https://github.com/beacon-observability/beacon-python/blob/v1.2.6/beacon-otel/examples/kubernetes/deployment.yaml) |
-| Release validation | [Beacon Python 1.2.6 build, tests and publication](https://github.com/beacon-observability/beacon-python/actions/runs/43186692916) |
+| Current release | [Beacon Python 1.2.7](https://github.com/beacon-observability/beacon-python/releases/tag/v1.2.7) |
+| Published packages | [`beacon-otel==1.2.7`](https://pypi.org/project/beacon-otel/1.2.7/) and [`beacon-profiling==1.2.7`](https://pypi.org/project/beacon-profiling/1.2.7/) |
+| Installation and Security usage | [Beacon Python 1.2.7 usage guide](https://github.com/beacon-observability/beacon-python/blob/v1.2.7/beacon-otel/README.md) |
+| Kubernetes Deployment example | [Beacon Python 1.2.7 Kubernetes example](https://github.com/beacon-observability/beacon-python/blob/v1.2.7/beacon-otel/examples/kubernetes/deployment.yaml) |
+| Release validation | [Beacon Python 1.2.7 build, tests and publication](https://github.com/beacon-observability/beacon-python/actions/runs/43395172035) |
 | Earlier Security verification | [Beacon Python 1.2.3 public-artifact verification](https://github.com/beacon-observability/beacon-python/blob/08dcc4f31f50b7610435b88f23d9cd4b1353e9b1/beacon/validation/1.2.3.md) |
 | Development guide | [Beacon Python development entry](https://github.com/beacon-observability/beacon-python/blob/main/beacon/README.md) |
-| Source provenance | [Release source baseline](https://github.com/beacon-observability/beacon-python/blob/v1.2.6/beacon/upstream.lock.json) |
+| Source provenance | [Release source baseline](https://github.com/beacon-observability/beacon-python/blob/v1.2.7/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-python/blob/main/beacon/UPSTREAM.md) |
 | Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-python/blob/main/beacon/RELEASING.md) |
 
@@ -183,15 +185,16 @@ After the initial release, this page will link to version-specific installation 
 
 Beacon Ruby maintains an independent downstream of the complete official OpenTelemetry Ruby
 Contrib source and history, with the official Ruby Core API, SDK, and exporters used as
-dependencies. The current source release is **v1.2.0**, distributed through a fixed tag,
+dependencies. The current source release is **v1.2.1**, distributed through a fixed tag,
 a verified source archive, provenance and SHA-256 checksums. It also distributes the
-independently versioned Security 0.1.0 and experimental profiling 0.1.0 gems on GitHub,
+independently versioned Security 0.1.0 and experimental profiling 0.1.1 gems on GitHub,
 not RubyGems.
 
 The source trace path covers the shared instrumentation base, Net::HTTP semantic modes
 and local Collector OTLP HTTP/protobuf trace delivery. Opt-in Security findings and runtime
 inventories use the host Logs SDK. Experimental profiling adds CPU/wall time, allocation
-counts, sampled live heap objects/bytes and GVL waits, with local DataKit pprof upload.
+counts, sampled live heap objects/bytes and GVL waits, with local DataKit pprof upload. The existing HTTP multipart uploader uses
+`OTEL_PROFILING_EXPORTER=http` and port 9529; this is not OTLP Profiles.
 Profiling compile/test/build CI passes Linux CRuby 3.3, 3.4 and 4.0; local receiver
 acceptance uses 3.3.12. Source availability is not a complete runtime or production
 overhead guarantee. See the versioned guides for explicit setup, limits and rollback.
@@ -199,10 +202,10 @@ overhead guarantee. See the versioned guides for explicit setup, limits and roll
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-ruby](https://github.com/beacon-observability/beacon-ruby) |
-| Current source release | [Beacon Ruby v1.2.0](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.2.0) |
-| Source installation and rollback | [Beacon Ruby v1.2.0 source guide](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.0/beacon/INSTALLATION.md) |
-| Release notes and scope | [Beacon Ruby v1.2.0 notes](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.0/beacon/releases/1.2.0.md) |
-| Component acceptance | [Versioned source acceptance](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.0/beacon/validation/profiling-1.2.0.md) |
+| Current source release | [Beacon Ruby v1.2.1](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.2.1) |
+| Source installation and rollback | [Beacon Ruby v1.2.1 source guide](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.1/beacon/INSTALLATION.md) |
+| Release notes and scope | [Beacon Ruby v1.2.1 notes](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.1/beacon/releases/1.2.1.md) |
+| Component acceptance | [Versioned source acceptance](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.1/beacon/validation/profiling-1.2.1.md) |
 | Development guide | [Beacon Ruby development entry](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/README.md) |
 | Source baseline and synchronization | [OpenTelemetry Ruby upstream maintenance](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/UPSTREAM.md) |
 | Release maintenance | [Beacon Ruby source release process](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/RELEASING.md) |
