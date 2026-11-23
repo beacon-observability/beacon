@@ -131,31 +131,35 @@ references and may change with ongoing development.
 ## Python
 
 Beacon Python maintains a standalone downstream copy of the complete OpenTelemetry Python Contrib
-source and is not a GitHub fork. The current official release is `1.2.6`, publishing matching
+source and is not a GitHub fork. The current official release is `1.3.0`, publishing matching
 `beacon-otel` and optional `beacon-profiling` distributions. The versioned release notes and source
 provenance records in the language repository define its Contrib `v0.66b2` / Core `v1.45.2` baseline and published scope.
 The former `gtrace` distribution is not a Beacon release.
 
-Beacon Security remains embedded in `beacon-otel`, opt-in and disabled by default, with local output
-off. Release 1.2.6 uses Security event schema v2 and fingerprint v1; consumers must migrate to the
-compact finding and successful inventory formats. Its runtime supports standard-GIL CPython
-3.11–3.14. The 1.2.6 release workflow built and tested both distributions before publication. Public-index
-installation checks verified the command version, automatic HTTP client traces, the disabled
-Security runtime, and gzip pprof file output. These are local checks, not new production DataKit
-qualification. Profiling now accepts only `otlp` and `file`; follow the release notes to migrate
-legacy exporter and multipart upload settings.
+Beacon Security remains embedded in `beacon-otel`, opt-in and disabled by default, with local
+output off. Release 1.3.0 exports a SIEM envelope containing serialized v2 evidence in `message`;
+consumers must adopt the envelope and use `span_id` instead of the removed span fields.
+Fingerprint v1 is unchanged. Security supports standard-GIL CPython 3.11–3.14.
+
+Individual instrumentation extras and `[all]` cover 51 plugins, while profiling remains a separate
+extra. The protected release workflow built and tested both distributions before publication.
+Public-index checks on CPython 3.14.3 verified base, selected, all, and all-plus-profiling installs,
+dependency consistency, zero-code startup, and no default local files. The four GitHub Release
+assets match their PyPI SHA-256 digests. These checks do not establish production-backend acceptance.
+Profiling retains the multipart pprof `http` exporter and the `file` exporter; follow the versioned
+migration notes for the changes from the 1.2.6 OTLP configuration.
 
 | Item | Entry point |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-python](https://github.com/beacon-observability/beacon-python) |
-| Current release | [Beacon Python 1.2.6](https://github.com/beacon-observability/beacon-python/releases/tag/v1.2.6) |
-| Published packages | [`beacon-otel==1.2.6`](https://pypi.org/project/beacon-otel/1.2.6/) and [`beacon-profiling==1.2.6`](https://pypi.org/project/beacon-profiling/1.2.6/) |
-| Installation and Security usage | [Beacon Python 1.2.6 usage guide](https://github.com/beacon-observability/beacon-python/blob/v1.2.6/beacon-otel/README.md) |
-| Kubernetes Deployment example | [Beacon Python 1.2.6 Kubernetes example](https://github.com/beacon-observability/beacon-python/blob/v1.2.6/beacon-otel/examples/kubernetes/deployment.yaml) |
-| Release validation | [Beacon Python 1.2.6 build, tests and publication](https://github.com/beacon-observability/beacon-python/actions/runs/43186692916) |
+| Current release | [Beacon Python 1.3.0](https://github.com/beacon-observability/beacon-python/releases/tag/v1.3.0) |
+| Published packages | [`beacon-otel==1.3.0`](https://pypi.org/project/beacon-otel/1.3.0/) and [`beacon-profiling==1.3.0`](https://pypi.org/project/beacon-profiling/1.3.0/) |
+| Installation and Security usage | [Beacon Python 1.3.0 usage guide](https://github.com/beacon-observability/beacon-python/blob/v1.3.0/beacon-otel/README.md) |
+| Kubernetes Deployment example | [Beacon Python 1.3.0 Kubernetes example](https://github.com/beacon-observability/beacon-python/blob/v1.3.0/beacon-otel/examples/kubernetes/deployment.yaml) |
+| Release validation | [Beacon Python 1.3.0 build, tests and publication](https://github.com/beacon-observability/beacon-python/actions/runs/45205657946) |
 | Earlier Security verification | [Beacon Python 1.2.3 public-artifact verification](https://github.com/beacon-observability/beacon-python/blob/08dcc4f31f50b7610435b88f23d9cd4b1353e9b1/beacon/validation/1.2.3.md) |
 | Development guide | [Beacon Python development entry](https://github.com/beacon-observability/beacon-python/blob/main/beacon/README.md) |
-| Source provenance | [Release source baseline](https://github.com/beacon-observability/beacon-python/blob/v1.2.6/beacon/upstream.lock.json) |
+| Source provenance | [Release source baseline](https://github.com/beacon-observability/beacon-python/blob/v1.3.0/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-python/blob/main/beacon/UPSTREAM.md) |
 | Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-python/blob/main/beacon/RELEASING.md) |
 
