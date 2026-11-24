@@ -165,36 +165,47 @@ migration notes for the changes from the 1.2.6 OTLP configuration.
 
 ## PHP
 
-Beacon PHP uses two standalone downstream repositories rather than GitHub forks. `beacon-php` preserves the complete OpenTelemetry PHP Contrib history and maintains component instrumentation and the Composer metapackage. `beacon-php-instrumentation` preserves the complete history of the official native extension and incorporates existing cross-platform build and artifact experience. The repositories are integration-tested against pinned releases, and manual instrumentation does not require the extension. Beacon PHP Instrumentation `0.1.0` is published with Linux and Windows binaries, a PECL-compatible source package, and SHA-256 checksums after passing representative Linux, macOS, and Windows matrices and PHPT tests. Composer packages have passed installation and diagnostic integration on PHP 8.2 and 8.4 against the released extension commit. The complete component matrix, real ingestion path, and Composer package publication have not yet been completed, so the full Beacon PHP distribution still has no official release or installation entry.
+Beacon PHP **2.0.0** is a lightweight Agent and isolated zero-code distribution,
+with selected official Composer instrumentation rather than a vendored Contrib
+source tree. Its installer selects the independently released Beacon native
+extension **1.1.0** (OpenTelemetry module 1.5.0). The declared standalone scope is
+Linux glibc x86_64 and PHP 8.2–8.4; match native PHP/architecture/ABI variants exactly.
+GitHub assets include the compiled setup script, isolated runtime, Composer library
+ZIP, license and SHA-256 checksums. Packagist publication is not claimed.
 
-The following development entry points are available on the GitHub `main` branch. Their contents may change as development progresses and do not constitute installation instructions or support commitments for an official release.
+Experimental Security remains opt-in. Version 2.0.0 exports SIEM v1 envelopes with
+complete v2 evidence in `message`, invocation `span_id`, and default no-evidence
+filtering. Its PHP inventory lifecycle remains synchronous/cooperative: idle
+processes have no independent scheduler, and long-running multi-request frameworks
+lack a request-reset adapter. Refer to the versioned Security guide for these gaps.
+Collector receipt and cold-install acceptance do not establish production backend
+storage or every application/framework combination.
 
-| Entry | Development URL |
+| Entry | URL |
 | --- | --- |
+| Current Agent release | [Beacon PHP 2.0.0](https://github.com/beacon-observability/beacon-php/releases/tag/v2.0.0) |
+| Zero-code installation and rollback | [Beacon PHP 2.0.0 standalone guide](https://github.com/beacon-observability/beacon-php/blob/v2.0.0/docs/standalone.md) |
+| Security migration and limits | [Beacon PHP 2.0.0 Security](https://github.com/beacon-observability/beacon-php/blob/v2.0.0/docs/security.md) |
 | Source repository | [beacon-observability/beacon-php](https://github.com/beacon-observability/beacon-php) |
-| Native extension repository | [beacon-observability/beacon-php-instrumentation](https://github.com/beacon-observability/beacon-php-instrumentation) |
-| Native extension release | [Beacon PHP Instrumentation 0.1.0](https://github.com/beacon-observability/beacon-php-instrumentation/releases/tag/v0.1.0) |
-| Development guide | [Beacon PHP development entry](https://github.com/beacon-observability/beacon-php/blob/main/beacon/README.md) |
-| Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-php/blob/main/beacon/upstream.lock.json) |
-| Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-php/blob/main/beacon/UPSTREAM.md) |
-| Release preparation | [Release prerequisites](https://github.com/beacon-observability/beacon-php/blob/main/beacon/RELEASING.md) |
-| Extension development guide | [Beacon PHP Instrumentation development entry](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/README.md) |
-| Extension provenance | [Extension upstream baseline](https://github.com/beacon-observability/beacon-php-instrumentation/blob/main/beacon/upstream.lock.json) |
-
-After the initial release, this page will link to version-specific installation instructions and the corresponding GitHub Release.
+| Native extension release | [Beacon PHP Instrumentation 1.1.0](https://github.com/beacon-observability/beacon-php-instrumentation/releases/tag/v1.1.0) |
+| Native installation | [Versioned native guide](https://github.com/beacon-observability/beacon-php-instrumentation/blob/v1.1.0/beacon/README.md) |
+| Agent provenance | [Released compatibility lock](https://github.com/beacon-observability/beacon-php/blob/v2.0.0/beacon/compatibility.lock.json) |
+| Development guide | [Mutable Beacon PHP maintenance entry](https://github.com/beacon-observability/beacon-php/blob/main/beacon/README.md) |
 
 ## Ruby
 
 Beacon Ruby maintains an independent downstream of the complete official OpenTelemetry Ruby
 Contrib source and history, with the official Ruby Core API, SDK, and exporters used as
-dependencies. The current source release is **v1.2.0**, distributed through a fixed tag,
+dependencies. The current source release is **v1.3.0**, distributed through a fixed tag,
 a verified source archive, provenance and SHA-256 checksums. It also distributes the
-independently versioned Security 0.1.0 and experimental profiling 0.1.0 gems on GitHub,
+independently versioned Security 0.2.0 and experimental profiling 0.1.1 gems on GitHub,
 not RubyGems.
 
 The source trace path covers the shared instrumentation base, Net::HTTP semantic modes
 and local Collector OTLP HTTP/protobuf trace delivery. Opt-in Security findings and runtime
-inventories use the host Logs SDK. Experimental profiling adds CPU/wall time, allocation
+inventories use the host Logs SDK. Security 0.2.0 uses SIEM v1 envelopes with
+complete serialized v2 evidence in `message`, invocation `span_id`, and default
+no-evidence filtering; consumers must migrate before upgrading. Experimental profiling adds CPU/wall time, allocation
 counts, sampled live heap objects/bytes and GVL waits, with local DataKit pprof upload.
 Profiling compile/test/build CI passes Linux CRuby 3.3, 3.4 and 4.0; local receiver
 acceptance uses 3.3.12. Source availability is not a complete runtime or production
@@ -203,10 +214,10 @@ overhead guarantee. See the versioned guides for explicit setup, limits and roll
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-ruby](https://github.com/beacon-observability/beacon-ruby) |
-| Current source release | [Beacon Ruby v1.2.0](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.2.0) |
-| Source installation and rollback | [Beacon Ruby v1.2.0 source guide](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.0/beacon/INSTALLATION.md) |
-| Release notes and scope | [Beacon Ruby v1.2.0 notes](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.0/beacon/releases/1.2.0.md) |
-| Component acceptance | [Versioned source acceptance](https://github.com/beacon-observability/beacon-ruby/blob/v1.2.0/beacon/validation/profiling-1.2.0.md) |
+| Current source release | [Beacon Ruby v1.3.0](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.3.0) |
+| Source installation and rollback | [Beacon Ruby v1.3.0 source guide](https://github.com/beacon-observability/beacon-ruby/blob/v1.3.0/beacon/INSTALLATION.md) |
+| Release notes and scope | [Beacon Ruby v1.3.0 notes](https://github.com/beacon-observability/beacon-ruby/blob/v1.3.0/beacon/releases/1.3.0.md) |
+| Component acceptance | [Published artifact and receiver acceptance](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.3.0) |
 | Development guide | [Beacon Ruby development entry](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/README.md) |
 | Source baseline and synchronization | [OpenTelemetry Ruby upstream maintenance](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/UPSTREAM.md) |
 | Release maintenance | [Beacon Ruby source release process](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/RELEASING.md) |
