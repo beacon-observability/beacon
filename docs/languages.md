@@ -39,7 +39,7 @@ with ongoing development.
 
 ## .NET
 
-Beacon .NET 2.0.0 maintains a standalone downstream of OpenTelemetry .NET Automatic
+Beacon .NET 2.0.1 maintains a standalone downstream of OpenTelemetry .NET Automatic
 Instrumentation. It distributes Linux glibc/musl, Windows, macOS and NuGet archives,
 DEB/RPM/MSI installers, checksums, an SPDX SBOM and GitHub artifact attestations.
 Security remains experimental and opt-in. Its compact schema-v2 LogRecord Body
@@ -51,11 +51,11 @@ DataKit/backend ingestion is outside that acceptance.
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-dotnet](https://github.com/beacon-observability/beacon-dotnet) |
-| Current release and acceptance | [Beacon .NET v2.0.0](https://github.com/beacon-observability/beacon-dotnet/releases/tag/v2.0.0) |
-| Installation and rollback | [Versioned launcher guide](https://github.com/beacon-observability/beacon-dotnet/blob/v2.0.0/beacon/README.md) |
-| Security and contract provenance | [Versioned Security reference](https://github.com/beacon-observability/beacon-dotnet/tree/v2.0.0/beacon/security) |
+| Current release and acceptance | [Beacon .NET v2.0.1](https://github.com/beacon-observability/beacon-dotnet/releases/tag/v2.0.1) |
+| Installation and rollback | [Versioned launcher guide](https://github.com/beacon-observability/beacon-dotnet/blob/v2.0.1/beacon/README.md) |
+| Security and contract provenance | [Versioned Security reference](https://github.com/beacon-observability/beacon-dotnet/tree/v2.0.1/beacon/security) |
 | Development guide | [Mutable development entry](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/README.md) |
-| Source provenance | [Released upstream baseline](https://github.com/beacon-observability/beacon-dotnet/blob/v2.0.0/beacon/upstream.lock.json) |
+| Source provenance | [Released upstream baseline](https://github.com/beacon-observability/beacon-dotnet/blob/v2.0.1/beacon/upstream.lock.json) |
 | Upstream maintenance | [Synchronization process](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/UPSTREAM.md) |
 
 ## C++
