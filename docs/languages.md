@@ -42,6 +42,7 @@ with ongoing development.
 Beacon .NET 2.0.1 maintains a standalone downstream of OpenTelemetry .NET Automatic
 Instrumentation. It distributes Linux glibc/musl, Windows, macOS and NuGet archives,
 DEB/RPM/MSI installers, checksums, an SPDX SBOM and GitHub artifact attestations.
+CoreCLR targets .NET 10/11; consult the release record for other runtime acceptance.
 Security remains experimental and opt-in. Its compact schema-v2 LogRecord Body
 moves event time and occurrence identity to native OTel metadata; upgrade consumers
 before upgrading. Runtime-specific Security acceptance is narrower than the archive
