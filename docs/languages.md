@@ -39,15 +39,24 @@ with ongoing development.
 
 ## .NET
 
-Beacon .NET maintains a standalone downstream copy of the complete OpenTelemetry .NET Automatic Instrumentation source and is not a GitHub fork. The current official version is `0.1.4`, with Linux glibc/musl, Windows, macOS, and NuGet archives, as well as installation scripts, checksums, an SPDX SBOM, and build provenance. The DataKit ingestion path is not yet within the validated support scope. Refer to the release notes for exact capabilities and limitations.
+Beacon .NET 2.0.0 maintains a standalone downstream of OpenTelemetry .NET Automatic
+Instrumentation. It distributes Linux glibc/musl, Windows, macOS and NuGet archives,
+DEB/RPM/MSI installers, checksums, an SPDX SBOM and GitHub artifact attestations.
+Security remains experimental and opt-in. Its compact schema-v2 LogRecord Body
+moves event time and occurrence identity to native OTel metadata; upgrade consumers
+before upgrading. Runtime-specific Security acceptance is narrower than the archive
+platform set. The release record defines platform and installer lifecycle validation;
+DataKit/backend ingestion is outside that acceptance.
 
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-dotnet](https://github.com/beacon-observability/beacon-dotnet) |
-| Development guide | [Beacon .NET development entry](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/README.md) |
-| Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/upstream.lock.json) |
+| Current release and acceptance | [Beacon .NET v2.0.0](https://github.com/beacon-observability/beacon-dotnet/releases/tag/v2.0.0) |
+| Installation and rollback | [Versioned launcher guide](https://github.com/beacon-observability/beacon-dotnet/blob/v2.0.0/beacon/README.md) |
+| Security and contract provenance | [Versioned Security reference](https://github.com/beacon-observability/beacon-dotnet/tree/v2.0.0/beacon/security) |
+| Development guide | [Mutable development entry](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/README.md) |
+| Source provenance | [Released upstream baseline](https://github.com/beacon-observability/beacon-dotnet/blob/v2.0.0/beacon/upstream.lock.json) |
 | Upstream maintenance | [Synchronization process](https://github.com/beacon-observability/beacon-dotnet/blob/main/beacon/UPSTREAM.md) |
-| Current release | [Beacon .NET 0.1.4](https://github.com/beacon-observability/beacon-dotnet/releases/tag/beacon-v0.1.4) |
 
 ## C++
 
@@ -87,27 +96,25 @@ Beacon Go is planned for `beacon-observability/beacon-go`. The project has not y
 ## Node.js
 
 Beacon Node.js maintains a standalone downstream copy of the complete official OpenTelemetry
-JavaScript Contrib source and history. The current official release is `1.3.1`; it publishes the
+JavaScript Contrib source and history. The current official release is `4.0.0`; it publishes the
 `@beacon-observability/nodejs` zero-code package and the matching
 `@beacon-observability/profiler-nodejs` and `@beacon-observability/security-nodejs` packages. The
 general zero-code workflow is validated on Node.js 18.19, 20, 22, and 24. Beacon Security requires
 Node.js 22.22.3+ or 24.11.1+.
 
 Beacon Security is included in the complete zero-code package as an opt-in capability. It pins the
-shared v1 contract, exports findings and runtime SBOM through OpenTelemetry Logs, and keeps local
-diagnostic output off by default. The npm Kubernetes example bakes the complete package into the
-application image without requiring a separate Security image, sidecar, or init container.
-Public-artifact acceptance verified installation from npm, zero-code trace and profile export,
-disabled native loading and failure isolation, ESM preloading, resource identity, signal handling,
-Security Log delivery before SDK shutdown, and workspace SBOM behavior. Version 1.3.1 improves
-preload and shutdown lifecycles, native profiling bounds, and workspace SBOM inventory; the versioned
-acceptance record distinguishes these checks from external backend qualification.
+compact schema-v2 LogRecord Body contract, with native OTel event time and
+`attributes.event_id`; consumers parse Body once without a SIEM `message` wrapper.
+Fingerprint v1 and inventory IDs are unchanged. Local Body-only diagnostics omit
+native time and identity. Security remains opt-in with default no-evidence filtering.
+Public npm artifacts, zero-code trace/profile export and ESM Security preload passed
+acceptance. The Release retains exact package manifests and checksum receipts.
 
-The public `ghcr.io/beacon-observability/beacon-nodejs:1.3.1` image supplies the same published
-packages, locked production dependencies, and a pinned Node.js 24 / Debian bookworm glibc runtime
-for Linux amd64 and arm64. It can supply the bundle through a multi-stage build or an initContainer
-to a compatible application runtime. Its native-library compatibility boundary is narrower than
-the npm package runtime matrix; see the pinned container guide.
+The public `ghcr.io/beacon-observability/beacon-nodejs:4.0.0` image supplies the same
+published packages for Linux amd64 and arm64. Both native candidates passed; anonymous
+pull and Kubernetes initContainer injection passed on Linux amd64, with a read-only
+non-root application and actual traces, native profiles and Security SBOM. The image
+runtime/native-library boundary is narrower than the npm matrix; use its pinned guide.
 
 The release link is authoritative for published scope. Entries that track `main` remain maintainer
 references and may change with ongoing development.
@@ -115,14 +122,14 @@ references and may change with ongoing development.
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-nodejs](https://github.com/beacon-observability/beacon-nodejs) |
-| Current release | [Beacon Node.js 1.3.1](https://github.com/beacon-observability/beacon-nodejs/releases/tag/v1.3.1) |
-| Published packages | [`@beacon-observability/nodejs@1.3.1`](https://www.npmjs.com/package/@beacon-observability/nodejs/v/1.3.1), [`@beacon-observability/profiler-nodejs@1.3.1`](https://www.npmjs.com/package/@beacon-observability/profiler-nodejs/v/1.3.1), and [`@beacon-observability/security-nodejs@1.3.1`](https://www.npmjs.com/package/@beacon-observability/security-nodejs/v/1.3.1) |
-| Installation and Security usage | [Beacon Node.js 1.3.1 usage guide](https://github.com/beacon-observability/beacon-nodejs/blob/v1.3.1/packages/nodejs/README.md) |
-| Container image | [Beacon Node.js 1.3.1 on GHCR](https://github.com/orgs/beacon-observability/packages/container/package/beacon-nodejs) |
-| Container installation | [Beacon Node.js 1.3.1 image guide](https://github.com/beacon-observability/beacon-nodejs/blob/b19cd02a9f963d8c757b7076a9aa468ee0667062/beacon/docker/nodejs/README.md) |
-| Container Kubernetes example | [Beacon Node.js 1.3.1 initContainer](https://github.com/beacon-observability/beacon-nodejs/blob/b19cd02a9f963d8c757b7076a9aa468ee0667062/beacon/docker/nodejs/init-container.yaml) |
-| Kubernetes Deployment example | [Beacon Node.js 1.3.1 Kubernetes example](https://github.com/beacon-observability/beacon-nodejs/blob/v1.3.1/packages/security-nodejs/examples/kubernetes/deployment.yaml) |
-| Release validation | [Beacon Node.js 1.3.1 public-artifact acceptance](https://github.com/beacon-observability/beacon-nodejs/blob/fb61a59b836adfc43f68c4ed32cba86ede4ed02f/beacon/validation/1.3.1.md) |
+| Current release | [Beacon Node.js 4.0.0](https://github.com/beacon-observability/beacon-nodejs/releases/tag/v4.0.0) |
+| Published packages | [`@beacon-observability/nodejs@4.0.0`](https://www.npmjs.com/package/@beacon-observability/nodejs/v/4.0.0), [`@beacon-observability/profiler-nodejs@4.0.0`](https://www.npmjs.com/package/@beacon-observability/profiler-nodejs/v/4.0.0), and [`@beacon-observability/security-nodejs@4.0.0`](https://www.npmjs.com/package/@beacon-observability/security-nodejs/v/4.0.0) |
+| Installation and Security usage | [Beacon Node.js 4.0.0 usage guide](https://github.com/beacon-observability/beacon-nodejs/blob/v4.0.0/packages/nodejs/README.md) |
+| Container image | [Beacon Node.js 4.0.0 on GHCR](https://github.com/orgs/beacon-observability/packages/container/package/beacon-nodejs) |
+| Container installation | [Beacon Node.js 4.0.0 image guide](https://github.com/beacon-observability/beacon-nodejs/blob/v4.0.0/beacon/docker/nodejs/README.md) |
+| Container Kubernetes example | [Beacon Node.js 4.0.0 initContainer](https://github.com/beacon-observability/beacon-nodejs/blob/v4.0.0/beacon/docker/nodejs/init-container.yaml) |
+| Kubernetes Deployment example | [Beacon Node.js 4.0.0 Kubernetes example](https://github.com/beacon-observability/beacon-nodejs/blob/v4.0.0/packages/security-nodejs/examples/kubernetes/deployment.yaml) |
+| Release validation | [Beacon Node.js 4.0.0 public-artifact acceptance](https://github.com/beacon-observability/beacon-nodejs/releases/tag/v4.0.0) |
 | Development guide | [Beacon Node.js development entry](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/README.md) |
 | Source provenance | [Upstream baseline record](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/upstream.lock.json) |
 | Upstream maintenance | [OpenTelemetry synchronization process](https://github.com/beacon-observability/beacon-nodejs/blob/main/beacon/UPSTREAM.md) |
@@ -172,7 +179,7 @@ migration notes for the changes from the 1.2.6 OTLP configuration.
 
 ## PHP
 
-Beacon PHP **2.0.0** is a lightweight Agent and isolated zero-code distribution,
+Beacon PHP **3.0.0** is a lightweight Agent and isolated zero-code distribution,
 with selected official Composer instrumentation rather than a vendored Contrib
 source tree. Its installer selects the independently released Beacon native
 extension **1.1.0** (OpenTelemetry module 1.5.0). The declared standalone scope is
@@ -180,9 +187,10 @@ Linux glibc x86_64 and PHP 8.2–8.4; match native PHP/architecture/ABI variants
 GitHub assets include the compiled setup script, isolated runtime, Composer library
 ZIP, license and SHA-256 checksums. Packagist publication is not claimed.
 
-Experimental Security remains opt-in. Version 2.0.0 exports SIEM v1 envelopes with
-complete v2 evidence in `message`, invocation `span_id`, and default no-evidence
-filtering. Its PHP inventory lifecycle remains synchronous/cooperative: idle
+Experimental Security remains opt-in. Version 3.0.0 uses compact single-line schema-v2
+JSON in LogRecord Body, native OTel event time and `attributes.event_id`, without a
+SIEM envelope or `message` wrapper. Fingerprint v1 and inventory IDs are unchanged;
+upgrade consumers first. Default no-evidence filtering remains. Its PHP inventory lifecycle remains synchronous/cooperative: idle
 processes have no independent scheduler, and long-running multi-request frameworks
 lack a request-reset adapter. Refer to the versioned Security guide for these gaps.
 Collector receipt and cold-install acceptance do not establish production backend
@@ -190,29 +198,32 @@ storage or every application/framework combination.
 
 | Entry | URL |
 | --- | --- |
-| Current Agent release | [Beacon PHP 2.0.0](https://github.com/beacon-observability/beacon-php/releases/tag/v2.0.0) |
-| Zero-code installation and rollback | [Beacon PHP 2.0.0 standalone guide](https://github.com/beacon-observability/beacon-php/blob/v2.0.0/docs/standalone.md) |
-| Security migration and limits | [Beacon PHP 2.0.0 Security](https://github.com/beacon-observability/beacon-php/blob/v2.0.0/docs/security.md) |
+| Current Agent release | [Beacon PHP 3.0.0](https://github.com/beacon-observability/beacon-php/releases/tag/v3.0.0) |
+| Zero-code installation and rollback | [Beacon PHP 3.0.0 standalone guide](https://github.com/beacon-observability/beacon-php/blob/v3.0.0/docs/standalone.md) |
+| Security migration and limits | [Beacon PHP 3.0.0 Security](https://github.com/beacon-observability/beacon-php/releases/tag/v3.0.0) |
 | Source repository | [beacon-observability/beacon-php](https://github.com/beacon-observability/beacon-php) |
 | Native extension release | [Beacon PHP Instrumentation 1.1.0](https://github.com/beacon-observability/beacon-php-instrumentation/releases/tag/v1.1.0) |
 | Native installation | [Versioned native guide](https://github.com/beacon-observability/beacon-php-instrumentation/blob/v1.1.0/beacon/README.md) |
-| Agent provenance | [Released compatibility lock](https://github.com/beacon-observability/beacon-php/blob/v2.0.0/beacon/compatibility.lock.json) |
+| Agent provenance | [Released compatibility lock](https://github.com/beacon-observability/beacon-php/blob/v3.0.0/beacon/compatibility.lock.json) |
 | Development guide | [Mutable Beacon PHP maintenance entry](https://github.com/beacon-observability/beacon-php/blob/main/beacon/README.md) |
 
 ## Ruby
 
 Beacon Ruby maintains an independent downstream of the complete official OpenTelemetry Ruby
 Contrib source and history, with the official Ruby Core API, SDK, and exporters used as
-dependencies. The current source release is **v1.3.0**, distributed through a fixed tag,
+dependencies. The current source release is **v2.0.0**, distributed through a fixed tag,
 a verified source archive, provenance and SHA-256 checksums. It also distributes the
-independently versioned Security 0.2.0 and experimental profiling 0.1.1 gems on GitHub,
+independently versioned Security 0.3.0 and experimental profiling 0.1.1 gems on GitHub,
 not RubyGems.
 
 The source trace path covers the shared instrumentation base, Net::HTTP semantic modes
 and local Collector OTLP HTTP/protobuf trace delivery. Opt-in Security findings and runtime
-inventories use the host Logs SDK. Security 0.2.0 uses SIEM v1 envelopes with
-complete serialized v2 evidence in `message`, invocation `span_id`, and default
-no-evidence filtering; consumers must migrate before upgrading. Experimental profiling adds CPU/wall time, allocation
+inventories use the host Logs SDK. Security 0.3.0 exports compact schema-v2 JSON directly in LogRecord Body,
+with native OTel event time and `attributes.event_id`. Body-only diagnostics omit
+those native values. There is no SIEM `message` wrapper; fingerprint v1 and inventory
+IDs are unchanged. Source and separately installed gem Collector acceptance passed;
+default no-evidence filtering remains, and consumers must migrate before upgrading.
+Experimental profiling adds CPU/wall time, allocation
 counts, sampled live heap objects/bytes and GVL waits, with local DataKit pprof upload.
 Profiling compile/test/build CI passes Linux CRuby 3.3, 3.4 and 4.0; local receiver
 acceptance uses 3.3.12. Source availability is not a complete runtime or production
@@ -221,10 +232,10 @@ overhead guarantee. See the versioned guides for explicit setup, limits and roll
 | Entry | URL |
 | --- | --- |
 | Source repository | [beacon-observability/beacon-ruby](https://github.com/beacon-observability/beacon-ruby) |
-| Current source release | [Beacon Ruby v1.3.0](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.3.0) |
-| Source installation and rollback | [Beacon Ruby v1.3.0 source guide](https://github.com/beacon-observability/beacon-ruby/blob/v1.3.0/beacon/INSTALLATION.md) |
-| Release notes and scope | [Beacon Ruby v1.3.0 notes](https://github.com/beacon-observability/beacon-ruby/blob/v1.3.0/beacon/releases/1.3.0.md) |
-| Component acceptance | [Published artifact and receiver acceptance](https://github.com/beacon-observability/beacon-ruby/releases/tag/v1.3.0) |
+| Current source release | [Beacon Ruby v2.0.0](https://github.com/beacon-observability/beacon-ruby/releases/tag/v2.0.0) |
+| Source installation and rollback | [Beacon Ruby v2.0.0 source guide](https://github.com/beacon-observability/beacon-ruby/blob/v2.0.0/beacon/INSTALLATION.md) |
+| Release notes and scope | [Beacon Ruby v2.0.0 notes](https://github.com/beacon-observability/beacon-ruby/blob/v2.0.0/beacon/releases/2.0.0.md) |
+| Component acceptance | [Published artifact and receiver acceptance](https://github.com/beacon-observability/beacon-ruby/releases/tag/v2.0.0) |
 | Development guide | [Beacon Ruby development entry](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/README.md) |
 | Source baseline and synchronization | [OpenTelemetry Ruby upstream maintenance](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/UPSTREAM.md) |
 | Release maintenance | [Beacon Ruby source release process](https://github.com/beacon-observability/beacon-ruby/blob/main/beacon/RELEASING.md) |
